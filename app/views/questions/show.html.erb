@@ -37,9 +37,13 @@
 
 <p>
   <b>Comments count:</b>
-  <%= @question.comments_count %>
+
 </p>
 
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
+<%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers") do |f| -%>
+    <%= f.text_area :content %>
+    <%= f.submit "Create answer" %>
+<% end -%>

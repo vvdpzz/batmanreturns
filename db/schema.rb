@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.integer  "question_id"
     t.text     "content"
     t.string   "about_me"
-    t.boolean  "is_correct"
+    t.integer  "vote_count",                      :default => 0
+    t.boolean  "is_correct",                      :default => false
+    t.boolean  "anonymous",                       :default => false
     t.binary   "comments",    :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
