@@ -32,7 +32,7 @@
 
 
 <p>
-    <%= render "partials/answer", :collection => @answers %>
+  <%= render @answers %>
 </p>
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
