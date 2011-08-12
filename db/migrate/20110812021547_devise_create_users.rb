@@ -5,6 +5,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.recoverable
       t.rememberable
       t.trackable
+      
+      t.integer :vote_per_day, :default => 40
+      t.integer :credit_today, :default => 0
 
       # t.encryptable
       # t.confirmable
