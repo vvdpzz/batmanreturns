@@ -8,9 +8,11 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="bp two-col">
+	<div id="container">
+		<div id="content">
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>
