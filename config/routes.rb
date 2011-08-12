@@ -1,5 +1,12 @@
 Batmanreturns::Application.routes.draw do
-  resources :questions
+  resources :questions do
+    resources :answers
+    resources :comments
+  end
+  
+  resources :answers do
+    resources :comments
+  end
 
   devise_for :users
 
