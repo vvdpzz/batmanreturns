@@ -1,11 +1,24 @@
 Batmanreturns::Application.routes.draw do
+
   resources :questions do
     resources :answers
     resources :comments
+    resources :votes, :only => [] do
+      collection do
+        get 'up'
+        get 'down'
+      end
+    end
   end
   
   resources :answers do
     resources :comments
+    resources :votes, :only => [] do
+      collection do
+        get 'up'
+        get 'down'
+      end
+    end
   end
 
   devise_for :users
