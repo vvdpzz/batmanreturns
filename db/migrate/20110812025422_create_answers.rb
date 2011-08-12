@@ -6,6 +6,8 @@ class CreateAnswers < ActiveRecord::Migration
       t.text :content
       t.string :about_me
       t.boolean :is_correct
+      
+      t.binary :comments, :limit => 10.megabyte
 
       t.timestamps
     end

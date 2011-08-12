@@ -8,6 +8,8 @@ class CreateQuestions < ActiveRecord::Migration
       t.decimal :money, :precision => 8, :scale => 2
       t.datetime :expire_time
       t.integer :answers_count
+      
+      t.binary :comments, :limit => 10.megabyte
 
       t.timestamps
     end

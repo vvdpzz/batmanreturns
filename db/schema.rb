@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.text     "content"
     t.string   "about_me"
     t.boolean  "is_correct"
+    t.binary   "comments",    :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,9 +28,10 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.string   "title"
     t.text     "content"
     t.integer  "credit"
-    t.decimal  "money",         :precision => 8, :scale => 2
+    t.decimal  "money",                             :precision => 8, :scale => 2
     t.datetime "expire_time"
     t.integer  "answers_count"
+    t.binary   "comments",      :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end
