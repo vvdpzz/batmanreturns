@@ -10,17 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812023116) do
+ActiveRecord::Schema.define(:version => 20110812025422) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.text     "content"
+    t.string   "about_me"
+    t.boolean  "is_correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
     t.text     "content"
     t.integer  "credit"
-    t.decimal  "money",          :precision => 8, :scale => 2
+    t.decimal  "money",         :precision => 8, :scale => 2
     t.datetime "expire_time"
     t.integer  "answers_count"
-    t.integer  "comments_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
