@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       t.integer :vote_per_day, :default => 40
       t.integer :credit_today, :default => 0
-
+      t.integer :credit, :default => 0
       # t.encryptable
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
