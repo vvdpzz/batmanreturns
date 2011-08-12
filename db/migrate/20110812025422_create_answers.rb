@@ -8,6 +8,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :vote_count, :default => 0
       t.boolean :is_correct, :default => false
       t.boolean :anonymous, :default => false
+
       
       t.binary :comments, :limit => 10.megabyte
 

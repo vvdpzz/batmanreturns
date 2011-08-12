@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "content"
-    t.integer  "credit"
-    t.decimal  "money",                             :precision => 8, :scale => 2
+    t.integer  "credit",                                                          :default => 0
+    t.decimal  "money",                             :precision => 8, :scale => 2, :default => 0.0
     t.datetime "expire_time"
-    t.integer  "answers_count"
+    t.integer  "answers_count",                                                   :default => 0
     t.binary   "comments",      :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"

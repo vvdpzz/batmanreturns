@@ -504,7 +504,7 @@ body.two-col #container {
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
-  margin-right: 10px;
+  margin-right: 0;
   width: 950px;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -515,7 +515,7 @@ body.two-col #header, body.two-col #footer {
 body.two-col #sidebar {
   display: inline;
   float: left;
-  margin-right: 10px;
+  margin-right: 0;
   width: 310px;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -526,7 +526,7 @@ body.two-col #sidebar {
 body.two-col #content {
   display: inline;
   float: left;
-  margin-right: 0;
+  margin-right: 10px;
   width: 630px;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
