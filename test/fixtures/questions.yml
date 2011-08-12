@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  title: MyString
+  content: MyText
+  credit: 1
+  money: 1.5
+  expire_time: 
+  answers_count: 1
+  comments_count: 1
+
+two:
+  user: 
+  title: MyString
+  content: MyText
+  credit: 1
+  money: 1.5
+  expire_time: 
+  answers_count: 1
+  comments_count: 1
