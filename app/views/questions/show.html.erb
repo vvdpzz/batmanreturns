@@ -30,10 +30,26 @@
   <%= @question.answers_count %>
 </p>
 
+<p>
+  <b>Comments:</b><br>
+  <% comments =  '[' + @question.comments.to_s + ']' %>
+  
+  <% comments = JSON.parse comments %>
+  <% comments.each do |comment|         %>
+  <%   comment = comment.symbolize_keys %>
+  "<%=  comment[:content] %>"
+  <%=  link_to comment[:user_id], "/users/#{comment[:user_id]}" %>
+  <%=  time_ago_in_words comment[:created_at] %> ago <br>
+  <% end                                %>
+</p>
+
+
+<%= render "comments/comment", :commentable => @question %>
 
 <p>
-    <%= render "partials/answer", :collection => @answers %>
+  <%= render @answers %>
 </p>
+
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
 <%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers") do |f| -%>
