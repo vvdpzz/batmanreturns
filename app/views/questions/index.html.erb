@@ -1,37 +1,14 @@
-<h1>Listing questions</h1>
+<h1><%= @questions.count %> Questions</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Credit</th>
-    <th>Money</th>
-    <th>Expire time</th>
-    <th>Answers count</th>
-    <th>Comments count</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @questions.each do |question| %>
-  <tr>
-    <td><%= question.user %></td>
-    <td><%= question.title %></td>
-    <td><%= question.content %></td>
-    <td><%= question.credit %></td>
-    <td><%= question.money %></td>
-    <td><%= question.expire_time %></td>
-    <td><%= question.answers_count %></td>
-    <td><%= question.comments_count %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<div id="questions">
+	<% @questions.each do |question| %>
+		<%= div_for question do %>
+		<%= question.answers_count %> answers
+		<%= question.money %> Yuan
+		<%= question.credit %> Credits
+		<%= link_to question.title, question %>
+		<% end %>
+	<% end %>
+</div>
 
 <%= link_to 'New Question', new_question_path %>

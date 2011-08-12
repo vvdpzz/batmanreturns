@@ -5,7 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.references :question
       t.text :content
       t.string :about_me
-      t.boolean :is_correct
+      t.boolean :is_correct, :default => false
       
       t.binary :comments, :limit => 10.megabyte
 
