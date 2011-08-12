@@ -1,0 +1,6 @@
+question_vote_up: 5
+answer_vote_up: 10
+question_vote_down: 2
+answer_vote_down: 2
+answer_vote_down_to_voter: 1
+answer_charge: 5
