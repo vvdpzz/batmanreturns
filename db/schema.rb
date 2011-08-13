@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812074002) do
+ActiveRecord::Schema.define(:version => 20110812081910) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -36,17 +36,61 @@ ActiveRecord::Schema.define(:version => 20110812074002) do
     t.datetime "updated_at"
   end
 
+  create_table "transaction_credits", :force => true do |t|
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.integer  "pay_u_id",                                                       :null => false
+    t.string   "pay_u_name",                                                     :null => false
+    t.integer  "receive_u_id",   :default => 0
+    t.string   "receive_u_name", :default => ""
+    t.integer  "credits",        :default => 10,                                 :null => false
+    t.integer  "operation_id",   :default => 7,                                  :null => false
+    t.string   "operation",      :default => "问 题 奖 励 积 \345\210\206", :null => false
+    t.string   "status",         :default => "",                                 :null => false
+    t.text     "remark",                                                         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transaction_moneys", :force => true do |t|
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.integer  "pay_u_id",                                                                                      :null => false
+    t.string   "pay_u_name",                                                                                    :null => false
+    t.integer  "receive_u_id",                                  :default => 0
+    t.string   "receive_u_name",                                :default => ""
+    t.decimal  "amount",          :precision => 8, :scale => 2,                                                 :null => false
+    t.integer  "operation_id",                                                                                  :null => false
+    t.string   "operation",                                     :default => "问 题 奖 励 现 \351\207\221", :null => false
+    t.string   "status",                                        :default => "",                                 :null => false
+    t.text     "remark",                                                                                        :null => false
+    t.integer  "bank_id",                                       :default => 0
+    t.string   "bank_name",                                     :default => ""
+    t.string   "bank_city",                                     :default => ""
+    t.string   "bank_area",                                     :default => ""
+    t.string   "bank_branch",                                   :default => ""
+    t.integer  "bank_account_no",                               :default => 0
+    t.integer  "ali_account_no",                                :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                                               :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128,                               :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                                                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "vote_per_day",                                                        :default => 40
+    t.integer  "credit_today",                                                        :default => 0
+    t.string   "username",                                                            :default => "xxd", :null => false
+    t.integer  "credit",                                                              :default => 0
+    t.decimal  "money",                                 :precision => 8, :scale => 2, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

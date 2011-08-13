@@ -20,9 +20,20 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.build(params[:question])
-
     if @question.save
       redirect_to(@question, :notice => 'Question was successfully created.')
+      if @question.credit > 0 
+        credit_was = @question.user.credit
+        credit_now = @question.user.credit - @question.credit
+        @question.user.update_attributes(:credit=>credit_now)
+        TransactionCredit.tran_credit(@question)
+      end
+      if @question.money > 0 
+        money_was = @question.user.money
+        money_now = @question.user.money - @question.money
+        @question.user.update_attributes(:money=>money_now)
+        TransactionMoney.tran_money(@question)
+      end
     else
       render :new
     end
