@@ -1,9 +1,11 @@
 class VotesController < ApplicationController
+  before_filter :who_called_vote
   def up
     # 从 settings.yml 中 读 出 配 置 信 息
     credit_per_vote = APP_CONFIG["#{@instance.class.name.downcase}_vote_up"]
     max_credit_per_day = APP_CONFIG["max_credit_per_day"]
     vote_limit = APP_CONFIG["vote_limit"]
+    puts @instance.id
     instance_user = @instance.user
     
     # 判 断 当 前 用 户 是 否 拥 可 以 投 票
@@ -55,7 +57,7 @@ class VotesController < ApplicationController
   end
   
   protected
-  def who_called_comment
+  def who_called_vote
     params.each do |name, value|
       if name =~ /(.+)_id$/
         return @instance = $1.classify.constantize.find(value)

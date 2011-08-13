@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.integer  "question_id"
     t.text     "content"
     t.string   "about_me"
-    t.integer  "vote_count",                      :default => 0
+    t.integer  "votes_count",                     :default => 0
     t.boolean  "is_correct",                      :default => false
     t.boolean  "anonymous",                       :default => false
     t.binary   "comments",    :limit => 16777215
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.integer  "credit",                                                          :default => 0
     t.decimal  "money",                             :precision => 8, :scale => 2, :default => 0.0
     t.datetime "expire_time"
+    t.integer  "votes_count",                                                     :default => 0
     t.integer  "answers_count",                                                   :default => 0
     t.binary   "comments",      :limit => 16777215
     t.datetime "created_at"
@@ -49,6 +50,9 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "vote_per_day",                          :default => 40
+    t.integer  "credit_today",                          :default => 0
+    t.integer  "credit",                                :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
