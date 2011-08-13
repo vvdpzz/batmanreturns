@@ -9,6 +9,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.datetime :expire_time
       t.integer :votes_count, :default => 0
       t.integer :answers_count, :default => 0
+      t.integer :accept_a_id
       
       t.binary :comments, :limit => 10.megabyte
 

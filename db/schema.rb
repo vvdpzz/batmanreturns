@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.datetime "expire_time"
     t.integer  "votes_count",                                                     :default => 0
     t.integer  "answers_count",                                                   :default => 0
+    t.integer  "accept_a_id"
     t.binary   "comments",      :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"

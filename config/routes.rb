@@ -1,7 +1,9 @@
 Batmanreturns::Application.routes.draw do
 
   resources :questions do
-    resources :answers, :only => [:create]
+    resources :answers, :only => [:create] do
+        get 'accept'
+    end
     resources :comments, :only => [:create]
     resources :votes, :only => [] do
       collection do
