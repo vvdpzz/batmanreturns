@@ -1,59 +1,34 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @question.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @question.content %>
-</p>
-
-<p>
-  <b>Credit:</b>
-  <%= @question.credit %>
-</p>
-
-<p>
-  <b>Money:</b>
-  <%= @question.money %>
-</p>
-
-<p>
-  <b>Expire time:</b>
-  <%= @question.expire_time %>
-</p>
-
-<p>
-  <b>Answers count:</b>
-  <%= @question.answers_count %>
-</p>
-
-<p>
-  <b>Comments:</b><br>
-  <% comments =  '[' + @question.comments.to_s + ']' %>
-  
-  <% comments = JSON.parse comments %>
-  <% comments.each do |comment|         %>
-  <%   comment = comment.symbolize_keys %>
-  "<%=  comment[:content] %>"
-  <%=  link_to comment[:user_id], "/users/#{comment[:user_id]}" %>
-  <%=  time_ago_in_words comment[:created_at] %> ago <br>
-  <% end                                %>
-</p>
-
-
-<%= render "comments/comment", :commentable => @question %>
-
-<p>
-  <%= render @answers %>
-</p>
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
-<%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers") do |f| -%>
-    <%= f.text_area :content %>
-    <%= f.text_field :about_me %>
-    <%= f.submit "Create answer" %>
-<% end -%>
+<%= div_for @question do %>
+	<div id="vote-cell">
+		<div class="vote">
+		    <a class="vote-up-off">up vote</a>
+		    <span class="vote-count-post"><%= @question.votes_count %></span>
+		    <a class="vote-down-off">down vote</a>
+		</div>
+	</div>
+	<div id="post-cell">
+		<div id="question-header">
+			<h3><%= link_to @question.title, @question %></h3>
+		</div>
+		<div class="post">
+			<%= @question.content %>
+			<%= render '/partials/user_bar', :obj => @question %>
+			<%= render '/partials/comment', :obj => @question %>
+		</div>
+	</div>
+<% end %>
+<div id="answers">
+	<div id="answers-header">
+		<div class="subheader answers-subheader">
+			<h2><%= @question.answers_count %> Answers</h2>
+		</div>
+	</div>
+	<%= render @answers %>
+	<%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers") do |f| -%>
+		<h2 class="space">Your Answer</h2>
+	    <%= f.text_area :content, :class => 'content-area' %>
+	    <%= f.text_field :about_me, :class => 'me-field' %>
+	    <%= f.submit "Create answer" %>
+	<% end -%>
+</div>

@@ -10,6 +10,8 @@
 // Import the non-default scaffolding module.
 @import "blueprint/scaffolding";
 
+@import "compass/utilities/general/clearfix";
+
 // To generate css equivalent to the blueprint css but with your
 // configuration applied, uncomment:
 // @include blueprint
@@ -47,3 +49,178 @@ body.two-col {
     $content-columns: ceil(2 * $blueprint-grid-columns / 3);
     // true means it's the last column in the row
     @include column($content-columns); } }
+
+
+//
+#question-header {
+	h3{
+		margin-bottom:10px;
+		a{
+			color: #333;
+			text-decoration:none;
+		}
+	}
+}
+#vote-cell{
+	float:left;
+	width:60px;
+}
+#post-cell{
+	margin-left:60px;
+	font-size:14px;
+	.comments-link{
+		color: #888;
+		text-decoration:none;
+		font-size:13px;
+	}
+}
+.comments {
+	border-top: dotted 1px #AAA;
+	margin-top: 10px;
+	padding-bottom: 10px;
+	line-height: 135%;
+	color: #444;
+	font-size: 13px;
+	.comment {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-bottom: dotted 1px #DDD;
+	}
+	.timestamp{
+		color:#999;
+	}
+}
+#new_comment{
+	display:none;
+}
+#answers-header {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#answers .subheader {
+	margin-bottom: -10px;
+}
+.subheader {
+	border-bottom: 1px solid #666;
+	height: 34px;
+	clear: both;
+	margin-bottom: 15px;
+}
+.subheader h1, .subheader h2 {
+	font-size: 170%;
+	line-height: 34px;
+	margin-bottom: 0px;
+}
+textarea {
+	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+	border: 1px solid #999;
+}
+.content-area{
+	width: 600px;
+	height: 150px;
+	line-height: 1.2;
+}
+.me-field{
+	border:1px solid #999;
+	width:600px;
+}
+.answer {
+border-bottom: 1px solid #AAA;
+padding-bottom: 20px;
+padding-top: 20px;
+}
+.space {
+padding-top: 20px;
+}
+#new_answer{
+	h2{
+		margin-bottom: 7px;
+	}
+}
+.user-bar{
+	padding-top:10px;
+	@include clearfix;
+}
+.bp .user-bar{
+	table{
+		margin-bottom:0;
+	}
+	td{
+		padding:0;
+		vertical-align:top;
+	}
+}
+.avatar{
+	float:left;
+	width:32px;
+	height:32px;
+}
+.user-ext{
+	margin-left:42px;
+}
+.ext-top{
+	line-height:1.2;
+}
+.timestamp{
+	color:#999;
+	font-size:12px;
+}
+.bp a.username-link{
+	text-decoration:none;
+}
+.user-base{
+	width:114px;
+}
+.user-me{
+	line-height:1.4;
+	font-size:13px;
+}
+.post-menu {
+	padding-top: 2px;
+}
+.bp .post-menu a{
+	color: #888;
+	text-decoration:none;
+}
+.lsep {
+	color: #CCC;
+	font-size: 110%;
+}
+.bp .comment .username a{
+	text-decoration:none;
+}
+.vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .comment-flag, .flag-off, .vote-accepted-off, .vote-accepted-on {
+	text-indent: -9999em;
+	font-size: 1px;
+}
+.vote-up-off, .vote-down-off, .vote-accepted-off, .star-off, .comment-up-off, .flag-off {
+	cursor: pointer;
+}
+.vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off {
+	background-position: 0px -265px;
+	display: block;
+	margin: 0 auto;
+	width: 41px;
+	height: 25px;
+}
+.vote-down-off {
+	background-position: 0px -300px;
+}
+#hlogo a, .envelope-on, .envelope-off, .vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .flag-off, .flag-on, .edited-yes, a.cc-wiki-link, .feed-icon, .statsarrow, .vote-accepted-off, .vote-accepted-on, .vote-accepted-bounty, .badge-earned-check, .delete-tag, .delete-tag-hover, .grippie, .expander-arrow-hide, .expander-arrow-show, .expander-arrow-small-hide, .expander-arrow-small-show, .anonymous-gravatar, .badge1, .badge2, .badge3, .add-interesting-tag-on, .add-interesting-tag-off {
+	background-image: url(/images/sprites.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.vote span {
+	display: block;
+	color: #808185;
+	font-weight: bold;
+}
+.vote-count-post {
+	display: block;
+	font-size: 280%;
+	line-height:1;
+}
+.vote {
+	text-align: center;
+}

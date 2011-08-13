@@ -1,4 +1,23 @@
-<p>
-	<%= answer.content %>
-</p>
-<%= answer.about_me %>
+<%= div_for answer do %>
+<div id="vote-cell">
+	<div class="vote">
+		<a class="vote-up-off">up vote</a>
+		<span class="vote-count-post"><%= answer.votes_count %></span>
+		<a class="vote-down-off">down vote</a>
+	</div>
+</div>
+<div id="post-cell">
+	<div class="post">
+		<%= answer.content %>
+		<div class="post-menu">
+			<a>link</a>
+			<span class="lsep">|</span>
+			<a>edit</a>
+			<span class="lsep">|</span>
+			<a>flag</a>
+		</div>
+		<%= render '/partials/user_bar', :obj => answer %>
+		<%= render '/partials/comment', :obj => answer %>
+	</div>
+</div>
+<% end %>

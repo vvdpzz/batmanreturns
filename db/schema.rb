@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.string   "about_me"
     t.integer  "vote_count",                      :default => 0
     t.boolean  "is_correct",                      :default => false
-    t.boolean  "anonymous",                       :default => false
+    t.integer  "votes_count",                     :default => 0
     t.binary   "comments",    :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,22 +33,29 @@ ActiveRecord::Schema.define(:version => 20110812025422) do
     t.decimal  "money",                             :precision => 8, :scale => 2, :default => 0.0
     t.datetime "expire_time"
     t.integer  "answers_count",                                                   :default => 0
+    t.integer  "votes_count",                                                     :default => 0
     t.binary   "comments",      :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "username"
+    t.string   "realname"
+    t.integer  "credit",                                                              :default => 0
+    t.decimal  "money",                                 :precision => 8, :scale => 2, :default => 0.0
+    t.string   "email",                                                               :default => "",  :null => false
+    t.string   "encrypted_password",     :limit => 128,                               :default => "",  :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                                                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "vote_per_day",                                                        :default => 40
+    t.integer  "credit_today",                                                        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

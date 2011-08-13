@@ -1,0 +1,24 @@
+<div class="user-bar">
+	<table>
+		<tbody>
+			<tr>
+				<td class="user-base">
+					<div class="avatar"><%= image_tag obj.user.gravatar_url(:size => 32) %></div>
+					<div class="user-ext">
+						<div class="ext-top">
+							<span class="username"><%= link_to obj.user.realname, "/users/#{obj.user.id}", :class => 'username-link' %></span>
+						</div>
+						<div class="datetime">
+							<span class="timestamp"><%= time_ago_in_words obj.created_at %>前</span>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="user-me">
+						<%= obj.user.aboutme %>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

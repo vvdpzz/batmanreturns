@@ -1,0 +1,16 @@
+<% comments = JSON.parse('[' + obj.comments.to_s + ']') %>
+<div class="comments">
+<% comments.each do |comment| %>
+	<% comment = comment.symbolize_keys %>
+	<div class="comment">
+		<%= comment[:content] %> - <span class="username"><%= link_to comment[:realname], "/users/#{comment[:user_id]}" %></span>
+		<span class="timestamp"><%= time_ago_in_words comment[:created_at] %> ago</span>
+	</div>
+<% end %>
+</div>
+<% if obj.class.name == 'Question' %>
+	<%= link_to('添加评论', new_question_comment_url(:question_id => obj.id), :remote => true, :class => 'comments-link') %>
+<% else %>
+  <%= link_to('添加评论', new_answer_comment_url(:answer_id => obj.id), :remote => true, :class => 'comments-link') %>
+<% end %>
+<%= render "comments/comment", :commentable => obj %>

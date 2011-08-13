@@ -1,4 +1,5 @@
 Batmanreturns::Application.routes.draw do
+  devise_for :users
 
   resources :questions do
     resources :answers
@@ -20,8 +21,6 @@ Batmanreturns::Application.routes.draw do
       end
     end
   end
-
-  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,10 +1,15 @@
 class CommentsController < ApplicationController
   before_filter :who_called_comment
+  
+  def new
+  end
+  
   def create
     old_comments = @instance.comments
     
     hash = {}
     hash[:user_id] = current_user.id
+    hash[:realname] = current_user.realname
     hash[:content] = params[:content]
     hash[:created_at] = Time.now
     
