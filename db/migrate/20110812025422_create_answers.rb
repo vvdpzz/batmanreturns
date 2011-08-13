@@ -4,10 +4,9 @@ class CreateAnswers < ActiveRecord::Migration
       t.references :user
       t.references :question
       t.text :content
-      t.string :about_me
-      t.integer :vote_count, :default => 0
-      t.boolean :is_correct, :default => false
+      t.string :aboutme
       t.integer :votes_count, :default => 0
+      t.boolean :is_correct, :default => false
       
       t.binary :comments, :limit => 10.megabyte
 

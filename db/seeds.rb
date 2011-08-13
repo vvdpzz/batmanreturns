@@ -1,4 +1,4 @@
-User.create(:username => 'xxd', :realname => '薛晓东', :email => 'xxd@gmail.com', :password => 'xxdxxd')
+User.create(:username => 'xxd', :realname => '薛晓东', :email => 'xuexiaodong79@gmail.com', :password => 'xxdxxd')
 User.create(:username => 'vvdpzz', :realname => '陈振宇', :email => 'vvdpzz@gmail.com', :password => 'vvdpzz')
 User.create(:username => 'tzzzoz', :realname => '喻柏程', :email => 'tzzzoz@gmail.com', :password => 'tzzzoz')
 
