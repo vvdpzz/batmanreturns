@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       t.integer :vote_per_day, :default => 40
       t.integer :credit_today, :default => 0
+
       t.string  :username    , :null => false, :default => 'xxd' 
       #t.string :first_name,       :null => false , :default => 'xxd'
       #t.string :last_name,        :null => false , :default => 'xxd'
@@ -22,7 +23,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.decimal :money, :precision => 8, :scale => 2, :default => 0
       #t.integer :vote_per_day, :default => 40
       #t.integer :credit_today, :default => 0
-      
+  
       # t.encryptable
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both

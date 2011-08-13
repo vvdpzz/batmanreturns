@@ -17,6 +17,10 @@ ActiveRecord::Schema.define(:version => 20110812081910) do
     t.integer  "question_id"
     t.text     "content"
     t.string   "about_me"
+<<<<<<< HEAD
+=======
+    t.integer  "votes_count",                     :default => 0
+>>>>>>> 22326e825c4ce730df39df2532262264f925db9d
     t.boolean  "is_correct",                      :default => false
     t.binary   "comments",    :limit => 16777215
     t.datetime "created_at"
@@ -30,7 +34,9 @@ ActiveRecord::Schema.define(:version => 20110812081910) do
     t.integer  "credit",                                                          :default => 0
     t.decimal  "money",                             :precision => 8, :scale => 2, :default => 0.0
     t.datetime "expire_time"
+    t.integer  "votes_count",                                                     :default => 0
     t.integer  "answers_count",                                                   :default => 0
+    t.integer  "accept_a_id"
     t.binary   "comments",      :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -86,11 +92,17 @@ ActiveRecord::Schema.define(:version => 20110812081910) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+<<<<<<< HEAD
     t.integer  "vote_per_day",                                                        :default => 40
     t.integer  "credit_today",                                                        :default => 0
     t.string   "username",                                                            :default => "xxd", :null => false
     t.integer  "credit",                                                              :default => 0
     t.decimal  "money",                                 :precision => 8, :scale => 2, :default => 0.0
+=======
+    t.integer  "vote_per_day",                          :default => 40
+    t.integer  "credit_today",                          :default => 0
+    t.integer  "credit",                                :default => 0
+>>>>>>> 22326e825c4ce730df39df2532262264f925db9d
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,8 +1,10 @@
 Batmanreturns::Application.routes.draw do
 
   resources :questions do
-    resources :answers
-    resources :comments
+    resources :answers, :only => [:create] do
+        get 'accept'
+    end
+    resources :comments, :only => [:create]
     resources :votes, :only => [] do
       collection do
         get 'up'
@@ -12,7 +14,7 @@ Batmanreturns::Application.routes.draw do
   end
   
   resources :answers do
-    resources :comments
+    resources :comments, :only => [:create]
     resources :votes, :only => [] do
       collection do
         get 'up'

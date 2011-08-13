@@ -1,4 +1,6 @@
 question_vote_up: 5
+vote_limit: 15
+max_credit_per_day: 200
 answer_vote_up: 10
 question_vote_down: 2
 answer_vote_down: 2
