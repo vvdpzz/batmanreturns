@@ -2,7 +2,7 @@
 <div id="vote-cell">
 	<div class="vote">
 		<%= link_to 'vote up', up_answer_votes_path(:answer_id => answer.id), :remote => true, :class => 'vote-up-off' %>
-	    <span class="vote-count-post"><%= answer.votes_count %></span>
+		<span class="vote-count-post" id="answer_<%= answer.id %>_vote"><%= answer.votes_count %></span>
 		<%= link_to 'vote down', down_answer_votes_path(:answer_id => answer.id), :remote => true, :class => 'vote-down-off' %>
 	</div>
 </div>
