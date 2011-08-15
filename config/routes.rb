@@ -2,10 +2,10 @@ Batmanreturns::Application.routes.draw do
   devise_for :users
 
   resources :questions do
-    resources :answers, :only => [:create] do
+    resources :answers, :only => [:new, :create] do
         get 'accept'
     end
-    resources :comments, :only => [:create]
+    resources :comments, :only => [:new, :create]
     resources :votes, :only => [] do
       collection do
         get 'up'

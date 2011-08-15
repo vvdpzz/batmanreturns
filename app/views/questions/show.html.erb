@@ -3,8 +3,9 @@
 	<div id="vote-cell">
 		<div class="vote">
 		    <a class="vote-up-off">up vote</a>
+			<%= link_to 'vote up', up_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-up-off' %>
 		    <span class="vote-count-post"><%= @question.votes_count %></span>
-		    <a class="vote-down-off">down vote</a>
+			<%= link_to 'vote down', down_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-down-off' %>
 		</div>
 	</div>
 	<div id="post-cell">
@@ -28,7 +29,7 @@
 	<%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers") do |f| -%>
 		<h2 class="space">Your Answer</h2>
 	    <%= f.text_area :content, :class => 'content-area' %>
-	    <%= f.text_field :about_me, :class => 'me-field' %>
+	    <%= f.text_field :aboutme, :class => 'me-field' %>
 	    <%= f.submit "Create answer" %>
 	<% end -%>
 </div>
