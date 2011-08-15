@@ -15,7 +15,7 @@ Batmanreturns::Application.routes.draw do
   end
   
   resources :answers do
-    resources :comments, :only => [:create]
+    resources :comments, :only => [:new, :create]
     resources :votes, :only => [] do
       collection do
         get 'up'
