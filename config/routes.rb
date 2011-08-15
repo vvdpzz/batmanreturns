@@ -1,11 +1,19 @@
 Batmanreturns::Application.routes.draw do
+  get "followed_question/followed"
+
+  get "followed_question/undo"
+
+  get "favorite/favorite"
+
+  get "favorite/undo"
+
   devise_for :users
 
   resources :questions do
     resources :answers, :only => [:create] do
         get 'accept'
     end
-    resources :comments, :only => [:create]
+    resources :comments, :only => [:new, :create]
     resources :votes, :only => [] do
       collection do
         get 'up'
@@ -15,7 +23,7 @@ Batmanreturns::Application.routes.draw do
   end
   
   resources :answers do
-    resources :comments, :only => [:create]
+    resources :comments, :only => [:new, :create]
     resources :votes, :only => [] do
       collection do
         get 'up'

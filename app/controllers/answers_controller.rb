@@ -16,8 +16,6 @@ class AnswersController < ApplicationController
     end
   end
 
-
-
   protected
     def find_question
       @question = Question.find params[:question_id]

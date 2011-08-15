@@ -1,0 +1,2 @@
+module FollowedQuestionHelper
+end
