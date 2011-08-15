@@ -3,8 +3,9 @@
 	<div id="vote-cell">
 		<div class="vote">
 		    <a class="vote-up-off">up vote</a>
+			<%= link_to 'vote up', up_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-up-off' %>
 		    <span class="vote-count-post"><%= @question.votes_count %></span>
-		    <a class="vote-down-off">down vote</a>
+			<%= link_to 'vote down', down_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-down-off' %>
 		</div>
 	</div>
 	<div id="post-cell">
