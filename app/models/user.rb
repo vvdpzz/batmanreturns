@@ -17,4 +17,5 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :pay, :class_name => "transaction", :foreign_key => "pay_u_id"
   has_many :recieve, :class_name => "transaction", :foreign_key => "receive_u_id"
+  has_many :votes
 end

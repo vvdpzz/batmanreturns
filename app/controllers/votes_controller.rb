@@ -5,11 +5,13 @@ class VotesController < ApplicationController
     credit_per_vote = APP_CONFIG["#{@instance.class.name.downcase}_vote_up"]
     max_credit_per_day = APP_CONFIG["max_credit_per_day"]
     vote_limit = APP_CONFIG["vote_limit"]
-    puts @instance.id
     instance_user = @instance.user
     
+    # 从redis 中 读 出 是 否 投 过 此 问 题 或 答 案
+    vote_done = $redis.sismember("#{@instance_type[0].chr}:#{@instance.id}.voter", current_user.id)
+    
     # 判 断 当 前 用 户 是 否 拥 可 以 投 票
-    if current_user.credit > vote_limit and current_user.vote_per_day > 0 and instance_user.credit_today < 200
+    if current_user.credit > vote_limit and current_user.vote_per_day > 0 and instance_user.credit_today < max_credit_per_day and !vote_done
       # 修 改 投 票 数
       @instance.votes_count += 1
       current_user.vote_per_day -= 1
@@ -23,10 +25,20 @@ class VotesController < ApplicationController
         instance_user.credit += credit_per_vote
       end
       
+      # 将 投 票 信 息 保 存
+      if @instance_type == "question"
+        vote = current_user.votes.build(:question_id => @instance.id, :vote => 1)
+      else
+        vote = current_user.votes.build(:answer_id => @instance.id, :vote => 1)
+      end
+      # 将 问 题 或 答 案 的 投 票 者 记 录 到redis
+      $redis.sadd("#{@instance_type[0].chr}:#{@instance.id}.voter", current_user.id)
+      
       # 保 存 相 关 信 息 的 变 更
       current_user.save
       instance_user.save
       @instance.save
+      vote.save
     end
   end
   
@@ -37,8 +49,12 @@ class VotesController < ApplicationController
     vote_limit = APP_CONFIG["vote_limit"]
     instance_user = @instance.user
     
+    # 从redis 中 读 出 是 否 投 过 此 问 题 或 答 案
+    vote_done = $redis.sismember("#{@instance_type[0].chr}:#{@instance.id}.voter", current_user.id)
+    
+        
     # 判 断 当 前 用 户 是 否 拥 可 以 投 票
-    if current_user.credit > vote_limit and current_user.vote_per_day > 0
+    if current_user.credit > vote_limit and current_user.vote_per_day > 0 and vote_done
       @instance.votes_count -= 1
       current_user.vote_per_day -= 1
       
@@ -48,11 +64,21 @@ class VotesController < ApplicationController
       
       instance_user.credit -= credit_per_vote
       instance_user.credit_today -= credit_per_vote
+        
+      # 将 投 票 信 息 保 存 到 数 据 库 中
+      if @instance_type == "question"
+        vote = current_user.votes.build(:question_id => @instance.id, :vote => -1)
+      else
+        vote = current_user.votes.build(:answer_id => @instance.id, :vote => -1)
+      end
+      # 将 问 题 或 答 案 的 投 票 者 记 录 到redis
+      $redis.sadd("#{@instance_type[0].chr}:#{@instance.id}.voter", current_user.id)
       
       # 保 存 相 关 信 息 的 变 更
       current_user.save
       instance_user.save
       @instance.save
+      vote.save
     end    
   end
   
@@ -60,7 +86,8 @@ class VotesController < ApplicationController
   def who_called_vote
     params.each do |name, value|
       if name =~ /(.+)_id$/
-        return @instance = $1.classify.constantize.find(value)
+        @instance = $1.classify.constantize.find(value)
+        @instance_type = $1
       end
     end
   end
