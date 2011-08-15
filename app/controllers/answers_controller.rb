@@ -16,6 +16,7 @@ class AnswersController < ApplicationController
       answer.is_correct = true
       if @question.credit != 0 || @question.money != 0
         answer.user.credit += @question.credit
+        answer.user.money += @question.money
       end
       @question.save
       answer.save

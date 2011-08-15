@@ -10,7 +10,7 @@ class VotesController < ApplicationController
     # 从redis 中 读 出 是 否 投 过 此 问 题 或 答 案
     have_not_vote_up = !$redis.sismember("#{@instance_type[0].chr}:#{@instance.id}.up_voter", current_user.id)
     have_vote_down = $redis.sismember("#{@instance_type[0].chr}:#{@instance.id}.down_voter", current_user.id)
-    puts have_not_vote_up
+
     # 判 断 当 前 用 户 是 否 拥 可 以 投 票
     if current_user.credit > vote_limit and current_user.vote_per_day > 0 and instance_user.credit_today < max_credit_per_day and have_not_vote_up
       # 修 改 投 票 数
