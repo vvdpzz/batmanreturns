@@ -5,11 +5,10 @@ class VotesController < ApplicationController
     credit_per_vote = APP_CONFIG["#{@instance.class.name.downcase}_vote_up"]
     max_credit_per_day = APP_CONFIG["max_credit_per_day"]
     vote_limit = APP_CONFIG["vote_limit"]
-    puts @instance.id
     instance_user = @instance.user
     
     # 判 断 当 前 用 户 是 否 拥 可 以 投 票
-    if current_user.credit > vote_limit and current_user.vote_per_day > 0 and instance_user.credit_today < 200
+    if current_user.credit > vote_limit and current_user.vote_per_day > 0 and instance_user.credit_today < max_credit_per_day
       # 修 改 投 票 数
       @instance.votes_count += 1
       current_user.vote_per_day -= 1
