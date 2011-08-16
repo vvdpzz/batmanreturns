@@ -2,12 +2,14 @@ class AnswersController < ApplicationController
   before_filter :find_question
   def create
     answer = current_user.answers.build params[:answer]
-    answer.question_id = @question.id
+    answer.question_id = params[:question_id]
     
     if @question.not_free?
       if answer.save
         current_user.credit -= APP_CONFIG["answer_paid_question"]
       end
+    else
+      answer.save
     end
     
     @question.answers_count += 1
