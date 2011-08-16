@@ -12,6 +12,16 @@ class AnswersController < ApplicationController
       answer.save
     end
     
+    reciever_id = current_user.id
+    user_id = answer.user.id
+    user_name = answer.user.realname
+    question_id = @question.id
+    question_title = @question.title
+    question_content = @question.content
+    answer_id = answer.id
+    answer_content = answer.content
+    Resque.enqueue(NewAnswerCall, reciever_id,user_id,user_name,question_id,question_title,question_content,answer_id,answer_content)
+    
     @question.answers_count += 1
     @question.save
     current_user.save

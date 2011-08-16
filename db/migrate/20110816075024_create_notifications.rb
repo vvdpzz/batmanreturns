@@ -11,8 +11,8 @@ class CreateNotifications < ActiveRecord::Migration
       t.integer :question_id
       t.string :question_content
       t.text :content
-      t.boolean :read
-      t.references :notification_type
+      t.boolean :read, :default => false
+      # t.references :notification_type
 
       t.timestamps
     end
