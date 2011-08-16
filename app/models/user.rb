@@ -19,4 +19,5 @@ class User < ActiveRecord::Base
   has_many :recieve, :class_name => "transaction", :foreign_key => "receive_u_id"
   has_many :votes
   has_many :following_user
+  has_many :notifications
 end
