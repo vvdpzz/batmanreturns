@@ -4,6 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :realname
       t.string :aboutme
+      t.string :image_path, :default => '/tmp/images/default/'
       
       t.integer :credit, :default => 0
       t.decimal :money, :precision => 8, :scale => 2, :default => 0

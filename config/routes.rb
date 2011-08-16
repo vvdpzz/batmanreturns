@@ -1,4 +1,8 @@
 Batmanreturns::Application.routes.draw do
+  get "following_user/follow"
+
+  get "following_user/undo"
+
   get "followed_question/followed"
 
   get "followed_question/undo"
