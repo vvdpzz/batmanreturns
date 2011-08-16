@@ -1,34 +1,41 @@
-<p id="notice"><%= notice %></p>
-<%= div_for @question do %>
-	<div id="vote-cell">
-		<div class="vote">
-			<%= link_to 'vote up', up_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-up-off' %>
-		    <span class="vote-count-post" id="question_<%= @question.id %>_vote"><%= @question.votes_count %></span>
-			<%= link_to 'vote down', down_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-down-off' %>
-		</div>
+<div id="content">
+	<div class="pagination paginationTop">
+	   <p class="left">
+	      <a href="/questions"><span class="arrow">«</span> 问题页面</a>
+	   </p>
+	   <p class="middle">&nbsp;</p>
 	</div>
-	<div id="post-cell">
-		<div id="question-header">
-			<h3><%= link_to @question.title, @question %></h3>
+	<%= div_for @question do %>
+		<div id="vote-cell">
+			<div class="vote">
+				<%= link_to 'vote up', up_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-up-off' %>
+			    <span class="vote-count-post" id="question_<%= @question.id %>_vote"><%= @question.votes_count %></span>
+				<%= link_to 'vote down', down_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-down-off' %>
+			</div>
 		</div>
-		<div class="post">
-			<%= @question.content %>
-			<%= render '/partials/user_bar', :obj => @question %>
-			<%= render '/partials/comment', :obj => @question %>
+		<div id="post-cell">
+			<div id="question-header">
+				<h3><%= link_to @question.title, @question %></h3>
+			</div>
+			<div class="post">
+				<%= @question.content %>
+				<%= render '/partials/user_bar', :obj => @question %>
+				<%= render '/partials/comment', :obj => @question %>
+			</div>
 		</div>
+	<% end %>
+	<div id="answers">
+		<div id="answers-header">
+			<div class="subheader answers-subheader">
+				<h2><%= @question.answers_count %> Answers</h2>
+			</div>
+		</div>
+		<%= render @answers %>
+		<%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers") do |f| -%>
+			<h2 class="space">我的回答</h2>
+		    <%= f.text_area :content, :class => 'content-area' %>
+		    <%= f.submit "添加答案", :class => 'answer-submit' %>
+		<% end -%>
 	</div>
-<% end %>
-<div id="answers">
-	<div id="answers-header">
-		<div class="subheader answers-subheader">
-			<h2><%= @question.answers_count %> Answers</h2>
-		</div>
-	</div>
-	<%= render @answers %>
-	<%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers") do |f| -%>
-		<h2 class="space">Your Answer</h2>
-	    <%= f.text_area :content, :class => 'content-area' %>
-	    <%= f.text_field :aboutme, :class => 'me-field' %>
-	    <%= f.submit "Create answer" %>
-	<% end -%>
+	
 </div>

@@ -1,64 +1,220 @@
-// This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
-
-// To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
-
-// Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
-
-// Import the non-default scaffolding module.
 @import "blueprint/scaffolding";
-
 @import "compass/utilities/general/clearfix";
 
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
-
-// If you are doing a lot of stylesheet concatenation, it is suggested
-// that you scope your blueprint styles, so that you can better control
-// what pages use blueprint when stylesheets are concatenated together.
 body.bp {
-  @include blueprint-typography(true);
-  @include blueprint-utilities;
-  @include blueprint-debug;
-  @include blueprint-interaction;
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+	@include blueprint-typography(true);
+	@include blueprint-utilities;
+	@include blueprint-debug;
+	@include blueprint-interaction;
+	a, a:visited, a strong {
+		color: #336DA8;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	h1 {
+		margin: 3px 0;
+		padding: 0;
+		font-size: 35px;
+		font-family: "Ubuntu",Helvetica,Arial,sans-serif;
+		font-weight: bold;
+		color: #444;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		text-rendering: optimizeLegibility;
+	}
 }
 
 form.bp {
-  @include blueprint-form;
-  // You'll probably want to remove the scaffolding once you start styling your site.
-  @include blueprint-scaffolding; }
+	@include blueprint-form;
+	@include blueprint-scaffolding;
+}
 
-// Page layout can be done using mixins applied to your semantic classes and IDs:
-body.two-col {
-  #container {
-    @include container; }
-  #header, #footer {
-    @include column($blueprint-grid-columns, true); }
-  #sidebar {
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns, true); }
-  #content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    // true means it's the last column in the row
-    @include column($content-columns); } }
+#header {
+	height: 40px;
+	min-width: 981px;
+	margin-bottom: 24px;
+	background-color: #336DA8;
+	text-align: center;
+}
+#header {
+	-webkit-box-shadow: 0 0 6px #666;
+	-moz-box-shadow: -6px 0 6px #666;
+	box-shadow: 0 0 6px #666;
+	font-family: "Open Sans",Helvetica,Arial,sans-serif;
+	h1 {
+		float: left;
+		margin: 7px 0 0 0;
+		padding: 0;
+		font-size: 1em;
+	}
+}
+#headerContent {
+	position: relative;
+	width: 981px;
+	height: 40px;
+	margin: 0 auto;
+}
+#headerIcons {
+	float: left;
+	height: 40px;
+	margin: 0 0 0 16px;
+	padding: 0;
+	list-style: none;
+}
+#headerIcons li {
+	float: left;
+	margin: 0;
+	a {
+		float: left;
+		display: block;
+		height: 40px;
+		padding: 0 16px;
+		font-weight: bold;
+		font-size: 1.167em;
+		line-height: 2.857em;
+		color: white;
+	}
+}
+.pagination {
+	margin: 3px 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 3px 7px;
+	background-color: #EEE;
+	line-height: 2em;
+	text-align: center;
+	a, a:hover, a:visited{
+		color: #666;
+		font-weight: bold;
+	}
+}
+.paginationTop {
+	margin:24px 0 10px
+}
+.pagination .left {
+	float: left;
+	text-align: left;
+}
+.pagination .left, .pagination .middle, .pagination .right {
+	margin: 0;
+}
+.arrow {
+	font-size: 1.2em;
+	font-weight: normal;
+	line-height: 1.388em;
+}
+#content .pagination .middle {
+	margin: 0 150px;
+	line-height: 1.667em;
+}
+body.two-col{
+	background-color: #EEE;
+	padding: 0 0 24px;
+	#container {
+    	@include container;
+		-webkit-box-shadow: 0 0 6px #CCC;
+		-moz-box-shadow: 0 0 6px #CCC;
+		box-shadow: 0 0 6px #CCC;
+		padding: 0 24px 24px;
+		background-color: white;
+	}
+	#footer{
+    	@include column($blueprint-grid-columns, true);
+	}
+	#sidebar{
+		$sidebar-columns: floor($blueprint-grid-columns / 3);
+		@include column($sidebar-columns, true);
+	}
+	#content {
+    	$content-columns: ceil(2 * $blueprint-grid-columns / 3);
+		@include column($content-columns);
+	}
+	#full-content{
+		@include column($blueprint-grid-columns, true);
+	}
+}
 
-
-//
-#question-header {
-	h3{
-		margin-bottom:10px;
-		a{
-			color: #333;
+#banner{
+	margin-top: 24px;
+	#questionsBanner {
+		margin: 20px 12px 8px;
+	}
+	.sectionBanner {
+		height: 150px;
+		background-repeat: no-repeat;
+		text-align: right;
+		h1 {
+			font-size: 30px;
+			padding-top: 12px;
+			font-weight: bold;
+			margin: 3px 0;
+		}
+		a {
+			font-size: 14px;
+			line-height: 1.3;
+			font-weight: bold;
 			text-decoration:none;
 		}
+		.tagline {
+			margin: 0;
+			font-size: 2em;
+			font-weight: normal;
+			color: #AAA;
+			line-height: 1.3;
+			padding-top: 5px;
+		}
+	}
+	.bigButton {
+		float: left;
+		text-align: center;
+		width: 195px;
+		margin: 0 5px;
+		h2 {
+			height: 124px;
+			margin: 0;
+			border: none;
+			padding: 0;
+			font-size: 1.2em;
+		}
+		a {
+			display: block;
+			height: 100%;
+			background-image: url(http://static.ifixit.net/static/images/answers/banner-buttons-20091110.gif);
+			background-repeat: no-repeat;
+			color: white;
+			span {
+				display: block;
+				padding-top: 80px;
+			}
+		}
+	}
+}
+#earthButton {
+	background-position: -2px -2px;
+}
+#peopleButton {
+	background-position: -2px -130px;
+}
+#hornButton:hover {
+	background-position: -201px -258px;
+}
+#hornButton {
+	background-position: -2px -258px;
+}
+#question-header{
+	h3{
+		margin-bottom: 10px;
+		font-size:18px;
+		font-weight:normal;
+		line-height:1.4;
+	}
+	a{
+		color:#222;
+		text-decoration:none;
 	}
 }
 #vote-cell{
@@ -105,32 +261,41 @@ body.two-col {
 	height: 34px;
 	clear: both;
 	margin-bottom: 15px;
-}
-.subheader h1, .subheader h2 {
-	font-size: 170%;
-	line-height: 34px;
-	margin-bottom: 0px;
+	h1, h2{
+		font-size: 170%;
+		line-height: 34px;
+		margin-bottom: 0px;
+	}
 }
 textarea {
 	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 	border: 1px solid #999;
 }
 .content-area{
-	width: 600px;
+	width: 620px;
 	height: 150px;
-	line-height: 1.2;
+	line-height: 1.4;
+	border:1px solid #ddd;
 }
 .me-field{
 	border:1px solid #999;
 	width:600px;
 }
+.answer-submit{
+	font-size:16px;
+}
+.comment-area{
+	width: 563px;
+	height:60px;
+	@include clearfix;
+}
 .answer {
-border-bottom: 1px solid #AAA;
-padding-bottom: 20px;
-padding-top: 20px;
+	border-bottom: 1px solid #AAA;
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 .space {
-padding-top: 20px;
+	padding-top: 20px;
 }
 #new_answer{
 	h2{
@@ -223,4 +388,102 @@ padding-top: 20px;
 }
 .vote {
 	text-align: center;
+}
+#askQuestion{
+	float: right;
+	width: 180px;
+	height:46px;
+	line-height:46px;
+	font-size: 16px;
+	color:white;
+	font-size:30px;
+	margin-right:50px;
+}
+.bp{
+	a.buttonLink{
+		border: 1px solid #EDA42E;
+		text-shadow: 0 -1px 0 #EDA42E;
+		background: #FEC965;
+		background: -moz-linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+		background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FEC965),color-stop(100%,#FEBC3E));
+		background: -webkit-linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+		background: -o-linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+		background: -ms-linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEC965',endColorstr='#FEBC3E',GradientType=0);
+		background: linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+		display: inline-block;
+		text-decoration:none;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		padding: 3px 5px 4px;
+		text-align: center;
+		font-family: "Ubuntu",Helvetica,Arial,sans-serif;
+		font-size: 1.2em;
+		line-height: 1.334em;
+		font-weight: bold;
+		color: white;
+		cursor: pointer;
+		
+	}
+}
+#questions{
+	.question{
+		@include clearfix;
+		padding:15px 0;
+		border-top: 1px dotted #DDD;
+	}
+}
+.boxes{
+	float:left;
+	width:140px;
+	@include clearfix;
+	.money-box{
+		float:left;
+		border:1px solid #ccc;
+		font-size:24px;
+		height:58px;
+		line-height:60px;
+		width:60px;
+		text-align:center;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		margin-right:10px;
+	}
+	.data-box{
+		float:left;
+		width: 60px;
+		text-align:center;
+		.answers-count-box{
+			margin: 0;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+			padding: 3px 5px;
+			background-color: #EEE;
+			line-height: 1.667em;
+			margin-bottom: 8px;
+		}
+		.votes-count-box{
+			margin: 0;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+			padding: 3px 5px;
+			background-color: #EEE;
+			line-height: 1.667em;
+		}
+	}
+}
+.summary{
+	margin-left:140px;
+	.question-title{
+		font-size:14px;
+	}
+	.question-ask-time{
+		text-align:right;
+		color:#888;
+		font-size:12px;
+	}
 }
