@@ -1,4 +1,12 @@
 Batmanreturns::Application.routes.draw do
+  get "followed_question/followed"
+
+  get "followed_question/undo"
+
+  get "favorite/favorite"
+
+  get "favorite/undo"
+
   devise_for :users
 
   resources :questions do

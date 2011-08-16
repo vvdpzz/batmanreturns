@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
+  has_many :votes
   
   validates_numericality_of :money, :message => "is not a number"
   validates_numericality_of :credit, :message => "is not a number"
