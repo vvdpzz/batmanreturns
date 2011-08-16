@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  following_user_id: 1
+  following: false
+
+two:
+  user: 
+  following_user_id: 1
+  following: false

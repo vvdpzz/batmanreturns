@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  follower_id: 1
+  followed_id: 1
+  followed_name: MyString
+  followed_aboutme: MyString
+  followed_image: MyString
+  following: false
+
+two:
+  follower_id: 1
+  followed_id: 1
+  followed_name: MyString
+  followed_aboutme: MyString
+  followed_image: MyString
+  following: false
