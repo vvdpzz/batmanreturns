@@ -11,16 +11,8 @@ class AnswersController < ApplicationController
     else
       answer.save
     end
-    
-    reciever_id = current_user.id
-    user_id = answer.user.id
-    user_name = answer.user.realname
-    question_id = @question.id
-    question_title = @question.title
-    question_content = @question.content
-    answer_id = answer.id
-    answer_content = answer.content
-    Resque.enqueue(NewAnswerCall, reciever_id,user_id,user_name,question_id,question_title,question_content,answer_id,answer_content)
+    # 把 参 数 的 获 取 放 到 Resque 里 获 取 了（ 这 里 最 后 一 个 参 数 可 以 考 虑 在 answer 中 添 加 一 个 字 段 ），这 里 就 没 那 么 丑 了
+    Resque.enqueue(NewAnswerCall, @question, answer, current_user.realname)
     
     @question.answers_count += 1
     @question.save
