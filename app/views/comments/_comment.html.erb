@@ -1,4 +1,4 @@
 <%= form_tag("/#{commentable.class.to_s.downcase}s/#{commentable.id}/comments", :id => 'new_comment') do %>
-	<%= text_area_tag :content %>
-	<%= submit_tag 'Send' %>
+	<%= text_area_tag :content, {}, :class => 'comment-area', :id => 'comment_area' %>
+	<%= submit_tag '评论' %>
 <% end %>

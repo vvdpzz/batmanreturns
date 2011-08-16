@@ -57,7 +57,7 @@ a img {
   border: none;
 }
 
-/* line 22, ../../app/stylesheets/screen.scss */
+/* line 7, ../../app/stylesheets/screen.scss */
 body.bp {
   line-height: 1.5;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -377,6 +377,25 @@ body.bp .removed {
   background: #990000;
   color: white;
 }
+/* line 12, ../../app/stylesheets/screen.scss */
+body.bp a, body.bp a:visited, body.bp a strong {
+  color: #336DA8;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* line 17, ../../app/stylesheets/screen.scss */
+body.bp h1 {
+  margin: 3px 0;
+  padding: 0;
+  font-size: 35px;
+  font-family: "Ubuntu",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  color: #444;
+}
+/* line 25, ../../app/stylesheets/screen.scss */
+body.bp h1, body.bp h2, body.bp h3, body.bp h4, body.bp h5, body.bp h6 {
+  text-rendering: optimizeLegibility;
+}
 
 /* line 18, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_form.scss */
 form.bp label {
@@ -493,25 +512,139 @@ form.bp form.inline p {
   margin-bottom: 0;
 }
 
-/* line 38, ../../app/stylesheets/screen.scss */
+/* line 35, ../../app/stylesheets/screen.scss */
+#header {
+  height: 40px;
+  min-width: 981px;
+  margin-bottom: 24px;
+  background-color: #336DA8;
+  text-align: center;
+}
+
+/* line 42, ../../app/stylesheets/screen.scss */
+#header {
+  -webkit-box-shadow: 0 0 6px #666;
+  -moz-box-shadow: -6px 0 6px #666666;
+  box-shadow: 0 0 6px #666;
+  font-family: "Open Sans",Helvetica,Arial,sans-serif;
+}
+/* line 47, ../../app/stylesheets/screen.scss */
+#header h1 {
+  float: left;
+  margin: 7px 0 0 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+/* line 54, ../../app/stylesheets/screen.scss */
+#headerContent {
+  position: relative;
+  width: 981px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+/* line 60, ../../app/stylesheets/screen.scss */
+#headerIcons {
+  float: left;
+  height: 40px;
+  margin: 0 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 67, ../../app/stylesheets/screen.scss */
+#headerIcons li {
+  float: left;
+  margin: 0;
+}
+/* line 70, ../../app/stylesheets/screen.scss */
+#headerIcons li a {
+  float: left;
+  display: block;
+  height: 40px;
+  padding: 0 16px;
+  font-weight: bold;
+  font-size: 1.167em;
+  line-height: 2.857em;
+  color: white;
+}
+
+/* line 81, ../../app/stylesheets/screen.scss */
+.pagination {
+  margin: 3px 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 3px 7px;
+  background-color: #EEE;
+  line-height: 2em;
+  text-align: center;
+}
+/* line 90, ../../app/stylesheets/screen.scss */
+.pagination a, .pagination a:hover, .pagination a:visited {
+  color: #666;
+  font-weight: bold;
+}
+
+/* line 95, ../../app/stylesheets/screen.scss */
+.paginationTop {
+  margin: 24px 0 10px;
+}
+
+/* line 98, ../../app/stylesheets/screen.scss */
+.pagination .left {
+  float: left;
+  text-align: left;
+}
+
+/* line 102, ../../app/stylesheets/screen.scss */
+.pagination .left, .pagination .middle, .pagination .right {
+  margin: 0;
+}
+
+/* line 105, ../../app/stylesheets/screen.scss */
+.arrow {
+  font-size: 1.2em;
+  font-weight: normal;
+  line-height: 1.388em;
+}
+
+/* line 110, ../../app/stylesheets/screen.scss */
+#content .pagination .middle {
+  margin: 0 150px;
+  line-height: 1.667em;
+}
+
+/* line 114, ../../app/stylesheets/screen.scss */
+body.two-col {
+  background-color: #EEE;
+  padding: 0 0 24px;
+}
+/* line 117, ../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
+  -webkit-box-shadow: 0 0 6px #CCC;
+  -moz-box-shadow: 0 0 6px #CCC;
+  box-shadow: 0 0 6px #CCC;
+  padding: 0 24px 24px;
+  background-color: white;
 }
-/* line 40, ../../app/stylesheets/screen.scss */
-body.two-col #header, body.two-col #footer {
+/* line 125, ../../app/stylesheets/screen.scss */
+body.two-col #footer {
   display: inline;
   float: left;
   margin-right: 0;
   width: 950px;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body.two-col #header, * html body.two-col #footer {
+* html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 42, ../../app/stylesheets/screen.scss */
+/* line 128, ../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -522,7 +655,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 46, ../../app/stylesheets/screen.scss */
+/* line 132, ../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;
@@ -533,36 +666,136 @@ body.two-col #content {
 * html body.two-col #content {
   overflow-x: hidden;
 }
+/* line 136, ../../app/stylesheets/screen.scss */
+body.two-col #full-content {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 950px;
+}
+/* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body.two-col #full-content {
+  overflow-x: hidden;
+}
 
-/* line 56, ../../app/stylesheets/screen.scss */
+/* line 141, ../../app/stylesheets/screen.scss */
+#banner {
+  margin-top: 24px;
+}
+/* line 143, ../../app/stylesheets/screen.scss */
+#banner #questionsBanner {
+  margin: 20px 12px 8px;
+}
+/* line 146, ../../app/stylesheets/screen.scss */
+#banner .sectionBanner {
+  height: 150px;
+  background-repeat: no-repeat;
+  text-align: right;
+}
+/* line 150, ../../app/stylesheets/screen.scss */
+#banner .sectionBanner h1 {
+  font-size: 30px;
+  padding-top: 12px;
+  font-weight: bold;
+  margin: 3px 0;
+}
+/* line 156, ../../app/stylesheets/screen.scss */
+#banner .sectionBanner a {
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 162, ../../app/stylesheets/screen.scss */
+#banner .sectionBanner .tagline {
+  margin: 0;
+  font-size: 2em;
+  font-weight: normal;
+  color: #AAA;
+  line-height: 1.3;
+  padding-top: 5px;
+}
+/* line 171, ../../app/stylesheets/screen.scss */
+#banner .bigButton {
+  float: left;
+  text-align: center;
+  width: 195px;
+  margin: 0 5px;
+}
+/* line 176, ../../app/stylesheets/screen.scss */
+#banner .bigButton h2 {
+  height: 124px;
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-size: 1.2em;
+}
+/* line 183, ../../app/stylesheets/screen.scss */
+#banner .bigButton a {
+  display: block;
+  height: 100%;
+  background-image: url(http://static.ifixit.net/static/images/answers/banner-buttons-20091110.gif);
+  background-repeat: no-repeat;
+  color: white;
+}
+/* line 189, ../../app/stylesheets/screen.scss */
+#banner .bigButton a span {
+  display: block;
+  padding-top: 80px;
+}
+
+/* line 196, ../../app/stylesheets/screen.scss */
+#earthButton {
+  background-position: -2px -2px;
+}
+
+/* line 199, ../../app/stylesheets/screen.scss */
+#peopleButton {
+  background-position: -2px -130px;
+}
+
+/* line 202, ../../app/stylesheets/screen.scss */
+#hornButton:hover {
+  background-position: -201px -258px;
+}
+
+/* line 205, ../../app/stylesheets/screen.scss */
+#hornButton {
+  background-position: -2px -258px;
+}
+
+/* line 209, ../../app/stylesheets/screen.scss */
 #question-header h3 {
   margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.4;
 }
-/* line 58, ../../app/stylesheets/screen.scss */
-#question-header h3 a {
-  color: #333;
+/* line 215, ../../app/stylesheets/screen.scss */
+#question-header a {
+  color: #222;
   text-decoration: none;
 }
 
-/* line 64, ../../app/stylesheets/screen.scss */
+/* line 220, ../../app/stylesheets/screen.scss */
 #vote-cell {
   float: left;
   width: 60px;
 }
 
-/* line 68, ../../app/stylesheets/screen.scss */
+/* line 224, ../../app/stylesheets/screen.scss */
 #post-cell {
   margin-left: 60px;
   font-size: 14px;
 }
-/* line 71, ../../app/stylesheets/screen.scss */
+/* line 227, ../../app/stylesheets/screen.scss */
 #post-cell .comments-link {
   color: #888;
   text-decoration: none;
   font-size: 13px;
 }
 
-/* line 77, ../../app/stylesheets/screen.scss */
+/* line 233, ../../app/stylesheets/screen.scss */
 .comments {
   border-top: dotted 1px #AAA;
   margin-top: 10px;
@@ -571,174 +804,187 @@ body.two-col #content {
   color: #444;
   font-size: 13px;
 }
-/* line 84, ../../app/stylesheets/screen.scss */
+/* line 240, ../../app/stylesheets/screen.scss */
 .comments .comment {
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: dotted 1px #DDD;
 }
-/* line 89, ../../app/stylesheets/screen.scss */
+/* line 245, ../../app/stylesheets/screen.scss */
 .comments .timestamp {
   color: #999;
 }
 
-/* line 93, ../../app/stylesheets/screen.scss */
+/* line 249, ../../app/stylesheets/screen.scss */
 #new_comment {
   display: none;
 }
 
-/* line 96, ../../app/stylesheets/screen.scss */
+/* line 252, ../../app/stylesheets/screen.scss */
 #answers-header {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 100, ../../app/stylesheets/screen.scss */
+/* line 256, ../../app/stylesheets/screen.scss */
 #answers .subheader {
   margin-bottom: -10px;
 }
 
-/* line 103, ../../app/stylesheets/screen.scss */
+/* line 259, ../../app/stylesheets/screen.scss */
 .subheader {
   border-bottom: 1px solid #666;
   height: 34px;
   clear: both;
   margin-bottom: 15px;
 }
-
-/* line 109, ../../app/stylesheets/screen.scss */
+/* line 264, ../../app/stylesheets/screen.scss */
 .subheader h1, .subheader h2 {
   font-size: 170%;
   line-height: 34px;
   margin-bottom: 0px;
 }
 
-/* line 114, ../../app/stylesheets/screen.scss */
+/* line 270, ../../app/stylesheets/screen.scss */
 textarea {
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   border: 1px solid #999;
 }
 
-/* line 118, ../../app/stylesheets/screen.scss */
+/* line 274, ../../app/stylesheets/screen.scss */
 .content-area {
-  width: 600px;
+  width: 620px;
   height: 150px;
-  line-height: 1.2;
+  line-height: 1.4;
+  border: 1px solid #ddd;
 }
 
-/* line 123, ../../app/stylesheets/screen.scss */
+/* line 280, ../../app/stylesheets/screen.scss */
 .me-field {
   border: 1px solid #999;
   width: 600px;
 }
 
-/* line 127, ../../app/stylesheets/screen.scss */
+/* line 284, ../../app/stylesheets/screen.scss */
+.answer-submit {
+  font-size: 16px;
+}
+
+/* line 287, ../../app/stylesheets/screen.scss */
+.comment-area {
+  width: 563px;
+  height: 60px;
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 292, ../../app/stylesheets/screen.scss */
 .answer {
   border-bottom: 1px solid #AAA;
   padding-bottom: 20px;
   padding-top: 20px;
 }
 
-/* line 132, ../../app/stylesheets/screen.scss */
+/* line 297, ../../app/stylesheets/screen.scss */
 .space {
   padding-top: 20px;
 }
 
-/* line 136, ../../app/stylesheets/screen.scss */
+/* line 301, ../../app/stylesheets/screen.scss */
 #new_answer h2 {
   margin-bottom: 7px;
 }
 
-/* line 140, ../../app/stylesheets/screen.scss */
+/* line 305, ../../app/stylesheets/screen.scss */
 .user-bar {
   padding-top: 10px;
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 145, ../../app/stylesheets/screen.scss */
+/* line 310, ../../app/stylesheets/screen.scss */
 .bp .user-bar table {
   margin-bottom: 0;
 }
-/* line 148, ../../app/stylesheets/screen.scss */
+/* line 313, ../../app/stylesheets/screen.scss */
 .bp .user-bar td {
   padding: 0;
   vertical-align: top;
 }
 
-/* line 153, ../../app/stylesheets/screen.scss */
+/* line 318, ../../app/stylesheets/screen.scss */
 .avatar {
   float: left;
   width: 32px;
   height: 32px;
 }
 
-/* line 158, ../../app/stylesheets/screen.scss */
+/* line 323, ../../app/stylesheets/screen.scss */
 .user-ext {
   margin-left: 42px;
 }
 
-/* line 161, ../../app/stylesheets/screen.scss */
+/* line 326, ../../app/stylesheets/screen.scss */
 .ext-top {
   line-height: 1.2;
 }
 
-/* line 164, ../../app/stylesheets/screen.scss */
+/* line 329, ../../app/stylesheets/screen.scss */
 .timestamp {
   color: #999;
   font-size: 12px;
 }
 
-/* line 168, ../../app/stylesheets/screen.scss */
+/* line 333, ../../app/stylesheets/screen.scss */
 .bp a.username-link {
   text-decoration: none;
 }
 
-/* line 171, ../../app/stylesheets/screen.scss */
+/* line 336, ../../app/stylesheets/screen.scss */
 .user-base {
   width: 114px;
 }
 
-/* line 174, ../../app/stylesheets/screen.scss */
+/* line 339, ../../app/stylesheets/screen.scss */
 .user-me {
   line-height: 1.4;
   font-size: 13px;
 }
 
-/* line 178, ../../app/stylesheets/screen.scss */
+/* line 343, ../../app/stylesheets/screen.scss */
 .post-menu {
   padding-top: 2px;
 }
 
-/* line 181, ../../app/stylesheets/screen.scss */
+/* line 346, ../../app/stylesheets/screen.scss */
 .bp .post-menu a {
   color: #888;
   text-decoration: none;
 }
 
-/* line 185, ../../app/stylesheets/screen.scss */
+/* line 350, ../../app/stylesheets/screen.scss */
 .lsep {
   color: #CCC;
   font-size: 110%;
 }
 
-/* line 189, ../../app/stylesheets/screen.scss */
+/* line 354, ../../app/stylesheets/screen.scss */
 .bp .comment .username a {
   text-decoration: none;
 }
 
-/* line 192, ../../app/stylesheets/screen.scss */
+/* line 357, ../../app/stylesheets/screen.scss */
 .vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .comment-flag, .flag-off, .vote-accepted-off, .vote-accepted-on {
   text-indent: -9999em;
   font-size: 1px;
 }
 
-/* line 196, ../../app/stylesheets/screen.scss */
+/* line 361, ../../app/stylesheets/screen.scss */
 .vote-up-off, .vote-down-off, .vote-accepted-off, .star-off, .comment-up-off, .flag-off {
   cursor: pointer;
 }
 
-/* line 199, ../../app/stylesheets/screen.scss */
+/* line 364, ../../app/stylesheets/screen.scss */
 .vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off {
   background-position: 0px -265px;
   display: block;
@@ -747,33 +993,144 @@ textarea {
   height: 25px;
 }
 
-/* line 206, ../../app/stylesheets/screen.scss */
+/* line 371, ../../app/stylesheets/screen.scss */
 .vote-down-off {
   background-position: 0px -300px;
 }
 
-/* line 209, ../../app/stylesheets/screen.scss */
+/* line 374, ../../app/stylesheets/screen.scss */
 #hlogo a, .envelope-on, .envelope-off, .vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .flag-off, .flag-on, .edited-yes, a.cc-wiki-link, .feed-icon, .statsarrow, .vote-accepted-off, .vote-accepted-on, .vote-accepted-bounty, .badge-earned-check, .delete-tag, .delete-tag-hover, .grippie, .expander-arrow-hide, .expander-arrow-show, .expander-arrow-small-hide, .expander-arrow-small-show, .anonymous-gravatar, .badge1, .badge2, .badge3, .add-interesting-tag-on, .add-interesting-tag-off {
   background-image: url(/images/sprites.png);
   background-repeat: no-repeat;
   overflow: hidden;
 }
 
-/* line 214, ../../app/stylesheets/screen.scss */
+/* line 379, ../../app/stylesheets/screen.scss */
 .vote span {
   display: block;
   color: #808185;
   font-weight: bold;
 }
 
-/* line 219, ../../app/stylesheets/screen.scss */
+/* line 384, ../../app/stylesheets/screen.scss */
 .vote-count-post {
   display: block;
   font-size: 280%;
   line-height: 1;
 }
 
-/* line 224, ../../app/stylesheets/screen.scss */
+/* line 389, ../../app/stylesheets/screen.scss */
 .vote {
   text-align: center;
+}
+
+/* line 392, ../../app/stylesheets/screen.scss */
+#askQuestion {
+  float: right;
+  width: 180px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 16px;
+  color: white;
+  font-size: 30px;
+  margin-right: 50px;
+}
+
+/* line 403, ../../app/stylesheets/screen.scss */
+.bp a.buttonLink {
+  border: 1px solid #EDA42E;
+  text-shadow: 0 -1px 0 #eda42e;
+  background: #FEC965;
+  background: -moz-linear-gradient(top, #fec965 0, #febc3e 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fec965), color-stop(100%, #febc3e));
+  background: -webkit-linear-gradient(top, #fec965 0, #febc3e 100%);
+  background: -o-linear-gradient(top, #fec965 0, #febc3e 100%);
+  background: -ms-linear-gradient(top, #fec965 0, #febc3e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEC965',endColorstr='#FEBC3E',GradientType=0);
+  background: linear-gradient(top, #fec965 0%, #febc3e 100%);
+  display: inline-block;
+  text-decoration: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 3px 5px 4px;
+  text-align: center;
+  font-family: "Ubuntu",Helvetica,Arial,sans-serif;
+  font-size: 1.2em;
+  line-height: 1.334em;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+/* line 431, ../../app/stylesheets/screen.scss */
+#questions .question {
+  overflow: hidden;
+  *zoom: 1;
+  padding: 15px 0;
+  border-top: 1px dotted #DDD;
+}
+
+/* line 437, ../../app/stylesheets/screen.scss */
+.boxes {
+  float: left;
+  width: 140px;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 441, ../../app/stylesheets/screen.scss */
+.boxes .money-box {
+  float: left;
+  border: 1px solid #ccc;
+  font-size: 24px;
+  height: 58px;
+  line-height: 60px;
+  width: 60px;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+/* line 454, ../../app/stylesheets/screen.scss */
+.boxes .data-box {
+  float: left;
+  width: 60px;
+  text-align: center;
+}
+/* line 458, ../../app/stylesheets/screen.scss */
+.boxes .data-box .answers-count-box {
+  margin: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 3px 5px;
+  background-color: #EEE;
+  line-height: 1.667em;
+  margin-bottom: 8px;
+}
+/* line 468, ../../app/stylesheets/screen.scss */
+.boxes .data-box .votes-count-box {
+  margin: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 3px 5px;
+  background-color: #EEE;
+  line-height: 1.667em;
+}
+
+/* line 479, ../../app/stylesheets/screen.scss */
+.summary {
+  margin-left: 140px;
+}
+/* line 481, ../../app/stylesheets/screen.scss */
+.summary .question-title {
+  font-size: 14px;
+}
+/* line 484, ../../app/stylesheets/screen.scss */
+.summary .question-ask-time {
+  text-align: right;
+  color: #888;
+  font-size: 12px;
 }

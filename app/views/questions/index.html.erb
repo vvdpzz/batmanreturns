@@ -1,14 +1,49 @@
-<h1><%= @questions.count %> Questions</h1>
-
-<div id="questions">
-	<% @questions.each do |question| %>
-		<%= div_for question do %>
-		<%= question.answers_count %> answers
-		<%= question.money %> Yuan
-		<%= question.credit %> Credits
-		<%= link_to question.title, question %>
-		<% end %>
-	<% end %>
+<div id="full-content">
+	<div id="banner">
+		<div id="questionsBanner" class="sectionBanner">
+			<div class="bigButton" style="margin-left:0px">
+				<h2><a href="/Info/environment" id="earthButton"><span>解决问题 <br> 并获得丰厚回报</span></a></h2>
+			</div>
+			<div class="bigButton">
+				<h2><a href="/Contribute" id="peopleButton"><span>赏罚分明<br>建立有序生态体系</span></a></h2>
+			</div>
+			<div class="bigButton">
+				<h2><a href="/Answers/About" id="hornButton"><span>Learn more <br> about iFixit answers</span></a></h2>
+			</div>
+			<h1>开始解决问题</h1>
+			<p class="tagline">我们将问答带入全新境界<br>理念大迈一步</p>
+		</div>                                       
+	</div>
+	<div class="question-header">
+		<%= link_to '提 问', new_question_path, :class => 'buttonLink', :id => 'askQuestion' %>
+	</div>
+	<div id="content">
+		<div id="questions">
+			<% @questions.each do |question| %>
+				<%= div_for question do %>
+					<div class="boxes">
+						<div class="money-box">
+							¥ <%= question.money.to_i %>
+						</div>
+						<div class="data-box">
+							<div class="answers-count-box">
+								<%= question.answers_count %> 回答
+							</div>
+							<div class="votes-count-box">
+								<%= question.votes_count %> 投票
+							</div>
+						</div>
+					</div>
+					<div class="summary">
+						<div class="question-title">
+							<%= link_to question.title, question %>
+						</div>
+						<div class="question-ask-time">
+							还剩 <%= time_ago_in_words question.created_at %>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
 </div>
-
-<%= link_to 'New Question', new_question_path %>
