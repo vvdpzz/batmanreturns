@@ -1,7 +1,7 @@
 Batmanreturns::Application.routes.draw do
-  get "following_user/follow"
+  get "relationship/follow"
 
-  get "following_user/undo"
+  get "relationship/undo"
 
   get "followed_question/followed"
 
@@ -12,6 +12,8 @@ Batmanreturns::Application.routes.draw do
   get "favorite/undo"
 
   devise_for :users
+  
+  match 'users/:id/follow' => 'relationship#follow', :via => 'get', :as => :follow
 
   resources :questions do
     resources :answers, :only => [:new, :create] do

@@ -10,5 +10,8 @@
 		<% end %>
 	<% end %>
 </div>
+<% User.all.each do |user| %>
+ <%= link_to user.realname, follow_path(:id => user.id) %>
+<% end %>
 
 <%= link_to 'New Question', new_question_path %>
