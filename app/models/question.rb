@@ -23,7 +23,9 @@ class Question < ActiveRecord::Base
     end
   end
   
-  
+  def not_free?
+    !(self.credit == 0 && self.money == 0.00)
+  end
   
   def charge
     amount = APP_CONFIG['answer_charge'].to_i
