@@ -46,4 +46,25 @@
 			<% end %>
 		</div>
 	</div>
+	<div id="sidebar">
+		<div id="suggest-users">
+			<h4>你可能感兴趣的朋友</h4>
+			<% User.all.first(5).each do |user| %>
+			<div class="follow-user">
+				<div class="gravtar">
+					<%= image_tag user.gravatar_url(:size => 32) %>
+				</div>
+				<div class="userinfo">
+					<div class="realname">
+						<%= link_to user.realname, user %>
+						<%= link_to '关注', follow_user_path(user), :class => 'xc xb xpw' %>
+					</div>
+					<div class="aboutme">
+						<%= truncate(user.aboutme, :length => 30) %>
+					</div>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
 </div>

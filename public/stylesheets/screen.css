@@ -649,13 +649,14 @@ body.two-col #sidebar {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 310px;
+  width: 270px;
+  float: right;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 132, ../../app/stylesheets/screen.scss */
+/* line 133, ../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;
@@ -666,7 +667,7 @@ body.two-col #content {
 * html body.two-col #content {
   overflow-x: hidden;
 }
-/* line 136, ../../app/stylesheets/screen.scss */
+/* line 137, ../../app/stylesheets/screen.scss */
 body.two-col #full-content {
   display: inline;
   float: left;
@@ -678,35 +679,35 @@ body.two-col #full-content {
   overflow-x: hidden;
 }
 
-/* line 141, ../../app/stylesheets/screen.scss */
+/* line 142, ../../app/stylesheets/screen.scss */
 #banner {
   margin-top: 24px;
 }
-/* line 143, ../../app/stylesheets/screen.scss */
+/* line 144, ../../app/stylesheets/screen.scss */
 #banner #questionsBanner {
   margin: 20px 12px 8px;
 }
-/* line 146, ../../app/stylesheets/screen.scss */
+/* line 147, ../../app/stylesheets/screen.scss */
 #banner .sectionBanner {
   height: 150px;
   background-repeat: no-repeat;
   text-align: right;
 }
-/* line 150, ../../app/stylesheets/screen.scss */
+/* line 151, ../../app/stylesheets/screen.scss */
 #banner .sectionBanner h1 {
   font-size: 30px;
   padding-top: 12px;
   font-weight: bold;
   margin: 3px 0;
 }
-/* line 156, ../../app/stylesheets/screen.scss */
+/* line 157, ../../app/stylesheets/screen.scss */
 #banner .sectionBanner a {
   font-size: 14px;
   line-height: 1.3;
   font-weight: bold;
   text-decoration: none;
 }
-/* line 162, ../../app/stylesheets/screen.scss */
+/* line 163, ../../app/stylesheets/screen.scss */
 #banner .sectionBanner .tagline {
   margin: 0;
   font-size: 2em;
@@ -715,14 +716,14 @@ body.two-col #full-content {
   line-height: 1.3;
   padding-top: 5px;
 }
-/* line 171, ../../app/stylesheets/screen.scss */
+/* line 172, ../../app/stylesheets/screen.scss */
 #banner .bigButton {
   float: left;
   text-align: center;
   width: 195px;
   margin: 0 5px;
 }
-/* line 176, ../../app/stylesheets/screen.scss */
+/* line 177, ../../app/stylesheets/screen.scss */
 #banner .bigButton h2 {
   height: 124px;
   margin: 0;
@@ -730,7 +731,7 @@ body.two-col #full-content {
   padding: 0;
   font-size: 1.2em;
 }
-/* line 183, ../../app/stylesheets/screen.scss */
+/* line 184, ../../app/stylesheets/screen.scss */
 #banner .bigButton a {
   display: block;
   height: 100%;
@@ -738,64 +739,64 @@ body.two-col #full-content {
   background-repeat: no-repeat;
   color: white;
 }
-/* line 189, ../../app/stylesheets/screen.scss */
+/* line 190, ../../app/stylesheets/screen.scss */
 #banner .bigButton a span {
   display: block;
   padding-top: 80px;
 }
 
-/* line 196, ../../app/stylesheets/screen.scss */
+/* line 197, ../../app/stylesheets/screen.scss */
 #earthButton {
   background-position: -2px -2px;
 }
 
-/* line 199, ../../app/stylesheets/screen.scss */
+/* line 200, ../../app/stylesheets/screen.scss */
 #peopleButton {
   background-position: -2px -130px;
 }
 
-/* line 202, ../../app/stylesheets/screen.scss */
+/* line 203, ../../app/stylesheets/screen.scss */
 #hornButton:hover {
   background-position: -201px -258px;
 }
 
-/* line 205, ../../app/stylesheets/screen.scss */
+/* line 206, ../../app/stylesheets/screen.scss */
 #hornButton {
   background-position: -2px -258px;
 }
 
-/* line 209, ../../app/stylesheets/screen.scss */
+/* line 210, ../../app/stylesheets/screen.scss */
 #question-header h3 {
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: normal;
   line-height: 1.4;
 }
-/* line 215, ../../app/stylesheets/screen.scss */
+/* line 216, ../../app/stylesheets/screen.scss */
 #question-header a {
   color: #222;
   text-decoration: none;
 }
 
-/* line 220, ../../app/stylesheets/screen.scss */
+/* line 221, ../../app/stylesheets/screen.scss */
 #vote-cell {
   float: left;
   width: 60px;
 }
 
-/* line 224, ../../app/stylesheets/screen.scss */
+/* line 225, ../../app/stylesheets/screen.scss */
 #post-cell {
   margin-left: 60px;
   font-size: 14px;
 }
-/* line 227, ../../app/stylesheets/screen.scss */
+/* line 228, ../../app/stylesheets/screen.scss */
 #post-cell .comments-link {
   color: #888;
   text-decoration: none;
   font-size: 13px;
 }
 
-/* line 233, ../../app/stylesheets/screen.scss */
+/* line 234, ../../app/stylesheets/screen.scss */
 .comments {
   border-top: dotted 1px #AAA;
   margin-top: 10px;
@@ -804,54 +805,54 @@ body.two-col #full-content {
   color: #444;
   font-size: 13px;
 }
-/* line 240, ../../app/stylesheets/screen.scss */
+/* line 241, ../../app/stylesheets/screen.scss */
 .comments .comment {
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: dotted 1px #DDD;
 }
-/* line 245, ../../app/stylesheets/screen.scss */
+/* line 246, ../../app/stylesheets/screen.scss */
 .comments .timestamp {
   color: #999;
 }
 
-/* line 249, ../../app/stylesheets/screen.scss */
+/* line 250, ../../app/stylesheets/screen.scss */
 #new_comment {
   display: none;
 }
 
-/* line 252, ../../app/stylesheets/screen.scss */
+/* line 253, ../../app/stylesheets/screen.scss */
 #answers-header {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 256, ../../app/stylesheets/screen.scss */
+/* line 257, ../../app/stylesheets/screen.scss */
 #answers .subheader {
   margin-bottom: -10px;
 }
 
-/* line 259, ../../app/stylesheets/screen.scss */
+/* line 260, ../../app/stylesheets/screen.scss */
 .subheader {
   border-bottom: 1px solid #666;
   height: 34px;
   clear: both;
   margin-bottom: 15px;
 }
-/* line 264, ../../app/stylesheets/screen.scss */
+/* line 265, ../../app/stylesheets/screen.scss */
 .subheader h1, .subheader h2 {
   font-size: 170%;
   line-height: 34px;
   margin-bottom: 0px;
 }
 
-/* line 270, ../../app/stylesheets/screen.scss */
+/* line 271, ../../app/stylesheets/screen.scss */
 textarea {
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   border: 1px solid #999;
 }
 
-/* line 274, ../../app/stylesheets/screen.scss */
+/* line 275, ../../app/stylesheets/screen.scss */
 .content-area {
   width: 620px;
   height: 150px;
@@ -859,18 +860,18 @@ textarea {
   border: 1px solid #ddd;
 }
 
-/* line 280, ../../app/stylesheets/screen.scss */
+/* line 281, ../../app/stylesheets/screen.scss */
 .me-field {
   border: 1px solid #999;
   width: 600px;
 }
 
-/* line 284, ../../app/stylesheets/screen.scss */
+/* line 285, ../../app/stylesheets/screen.scss */
 .answer-submit {
   font-size: 16px;
 }
 
-/* line 287, ../../app/stylesheets/screen.scss */
+/* line 288, ../../app/stylesheets/screen.scss */
 .comment-area {
   width: 563px;
   height: 60px;
@@ -878,113 +879,113 @@ textarea {
   *zoom: 1;
 }
 
-/* line 292, ../../app/stylesheets/screen.scss */
+/* line 293, ../../app/stylesheets/screen.scss */
 .answer {
   border-bottom: 1px solid #AAA;
   padding-bottom: 20px;
   padding-top: 20px;
 }
 
-/* line 297, ../../app/stylesheets/screen.scss */
+/* line 298, ../../app/stylesheets/screen.scss */
 .space {
   padding-top: 20px;
 }
 
-/* line 301, ../../app/stylesheets/screen.scss */
+/* line 302, ../../app/stylesheets/screen.scss */
 #new_answer h2 {
   margin-bottom: 7px;
 }
 
-/* line 305, ../../app/stylesheets/screen.scss */
+/* line 306, ../../app/stylesheets/screen.scss */
 .user-bar {
   padding-top: 10px;
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 310, ../../app/stylesheets/screen.scss */
+/* line 311, ../../app/stylesheets/screen.scss */
 .bp .user-bar table {
   margin-bottom: 0;
 }
-/* line 313, ../../app/stylesheets/screen.scss */
+/* line 314, ../../app/stylesheets/screen.scss */
 .bp .user-bar td {
   padding: 0;
   vertical-align: top;
 }
 
-/* line 318, ../../app/stylesheets/screen.scss */
+/* line 319, ../../app/stylesheets/screen.scss */
 .avatar {
   float: left;
   width: 32px;
   height: 32px;
 }
 
-/* line 323, ../../app/stylesheets/screen.scss */
+/* line 324, ../../app/stylesheets/screen.scss */
 .user-ext {
   margin-left: 42px;
 }
 
-/* line 326, ../../app/stylesheets/screen.scss */
+/* line 327, ../../app/stylesheets/screen.scss */
 .ext-top {
   line-height: 1.2;
 }
 
-/* line 329, ../../app/stylesheets/screen.scss */
+/* line 330, ../../app/stylesheets/screen.scss */
 .timestamp {
   color: #999;
   font-size: 12px;
 }
 
-/* line 333, ../../app/stylesheets/screen.scss */
+/* line 334, ../../app/stylesheets/screen.scss */
 .bp a.username-link {
   text-decoration: none;
 }
 
-/* line 336, ../../app/stylesheets/screen.scss */
+/* line 337, ../../app/stylesheets/screen.scss */
 .user-base {
   width: 114px;
 }
 
-/* line 339, ../../app/stylesheets/screen.scss */
+/* line 340, ../../app/stylesheets/screen.scss */
 .user-me {
   line-height: 1.4;
   font-size: 13px;
 }
 
-/* line 343, ../../app/stylesheets/screen.scss */
+/* line 344, ../../app/stylesheets/screen.scss */
 .post-menu {
   padding-top: 2px;
 }
 
-/* line 346, ../../app/stylesheets/screen.scss */
+/* line 347, ../../app/stylesheets/screen.scss */
 .bp .post-menu a {
   color: #888;
   text-decoration: none;
 }
 
-/* line 350, ../../app/stylesheets/screen.scss */
+/* line 351, ../../app/stylesheets/screen.scss */
 .lsep {
   color: #CCC;
   font-size: 110%;
 }
 
-/* line 354, ../../app/stylesheets/screen.scss */
+/* line 355, ../../app/stylesheets/screen.scss */
 .bp .comment .username a {
   text-decoration: none;
 }
 
-/* line 357, ../../app/stylesheets/screen.scss */
+/* line 358, ../../app/stylesheets/screen.scss */
 .vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .comment-flag, .flag-off, .vote-accepted-off, .vote-accepted-on {
   text-indent: -9999em;
   font-size: 1px;
 }
 
-/* line 361, ../../app/stylesheets/screen.scss */
+/* line 362, ../../app/stylesheets/screen.scss */
 .vote-up-off, .vote-down-off, .vote-accepted-off, .star-off, .comment-up-off, .flag-off {
   cursor: pointer;
 }
 
-/* line 364, ../../app/stylesheets/screen.scss */
+/* line 365, ../../app/stylesheets/screen.scss */
 .vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off {
   background-position: 0px -265px;
   display: block;
@@ -993,38 +994,38 @@ textarea {
   height: 25px;
 }
 
-/* line 371, ../../app/stylesheets/screen.scss */
+/* line 372, ../../app/stylesheets/screen.scss */
 .vote-down-off {
   background-position: 0px -300px;
 }
 
-/* line 374, ../../app/stylesheets/screen.scss */
+/* line 375, ../../app/stylesheets/screen.scss */
 #hlogo a, .envelope-on, .envelope-off, .vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .flag-off, .flag-on, .edited-yes, a.cc-wiki-link, .feed-icon, .statsarrow, .vote-accepted-off, .vote-accepted-on, .vote-accepted-bounty, .badge-earned-check, .delete-tag, .delete-tag-hover, .grippie, .expander-arrow-hide, .expander-arrow-show, .expander-arrow-small-hide, .expander-arrow-small-show, .anonymous-gravatar, .badge1, .badge2, .badge3, .add-interesting-tag-on, .add-interesting-tag-off {
   background-image: url(/images/sprites.png);
   background-repeat: no-repeat;
   overflow: hidden;
 }
 
-/* line 379, ../../app/stylesheets/screen.scss */
+/* line 380, ../../app/stylesheets/screen.scss */
 .vote span {
   display: block;
   color: #808185;
   font-weight: bold;
 }
 
-/* line 384, ../../app/stylesheets/screen.scss */
+/* line 385, ../../app/stylesheets/screen.scss */
 .vote-count-post {
   display: block;
   font-size: 280%;
   line-height: 1;
 }
 
-/* line 389, ../../app/stylesheets/screen.scss */
+/* line 390, ../../app/stylesheets/screen.scss */
 .vote {
   text-align: center;
 }
 
-/* line 392, ../../app/stylesheets/screen.scss */
+/* line 393, ../../app/stylesheets/screen.scss */
 #askQuestion {
   float: right;
   width: 180px;
@@ -1036,7 +1037,7 @@ textarea {
   margin-right: 50px;
 }
 
-/* line 403, ../../app/stylesheets/screen.scss */
+/* line 404, ../../app/stylesheets/screen.scss */
 .bp a.buttonLink {
   border: 1px solid #EDA42E;
   text-shadow: 0 -1px 0 #eda42e;
@@ -1063,7 +1064,7 @@ textarea {
   cursor: pointer;
 }
 
-/* line 431, ../../app/stylesheets/screen.scss */
+/* line 432, ../../app/stylesheets/screen.scss */
 #questions .question {
   overflow: hidden;
   *zoom: 1;
@@ -1071,14 +1072,14 @@ textarea {
   border-top: 1px dotted #DDD;
 }
 
-/* line 437, ../../app/stylesheets/screen.scss */
+/* line 438, ../../app/stylesheets/screen.scss */
 .boxes {
   float: left;
   width: 140px;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 441, ../../app/stylesheets/screen.scss */
+/* line 442, ../../app/stylesheets/screen.scss */
 .boxes .money-box {
   float: left;
   border: 1px solid #ccc;
@@ -1092,13 +1093,13 @@ textarea {
   border-radius: 4px;
   margin-right: 10px;
 }
-/* line 454, ../../app/stylesheets/screen.scss */
+/* line 455, ../../app/stylesheets/screen.scss */
 .boxes .data-box {
   float: left;
   width: 60px;
   text-align: center;
 }
-/* line 458, ../../app/stylesheets/screen.scss */
+/* line 459, ../../app/stylesheets/screen.scss */
 .boxes .data-box .answers-count-box {
   margin: 0;
   -webkit-border-radius: 4px;
@@ -1109,7 +1110,7 @@ textarea {
   line-height: 1.667em;
   margin-bottom: 8px;
 }
-/* line 468, ../../app/stylesheets/screen.scss */
+/* line 469, ../../app/stylesheets/screen.scss */
 .boxes .data-box .votes-count-box {
   margin: 0;
   -webkit-border-radius: 4px;
@@ -1120,17 +1121,94 @@ textarea {
   line-height: 1.667em;
 }
 
-/* line 479, ../../app/stylesheets/screen.scss */
+/* line 480, ../../app/stylesheets/screen.scss */
 .summary {
   margin-left: 140px;
 }
-/* line 481, ../../app/stylesheets/screen.scss */
+/* line 482, ../../app/stylesheets/screen.scss */
 .summary .question-title {
   font-size: 14px;
 }
-/* line 484, ../../app/stylesheets/screen.scss */
+/* line 485, ../../app/stylesheets/screen.scss */
 .summary .question-ask-time {
   text-align: right;
   color: #888;
   font-size: 12px;
+}
+
+/* line 492, ../../app/stylesheets/screen.scss */
+.xpw {
+  float: right;
+}
+
+/* line 495, ../../app/stylesheets/screen.scss */
+.xb {
+  background: #8AB923;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ADDA4D',endColorstr='#86B846');
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#adda4d), to(#86b846));
+  background: -moz-linear-gradient(top, #adda4d, #86b846);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid #6D8F29;
+  color: #3E5E00!important;
+}
+
+/* line 508, ../../app/stylesheets/screen.scss */
+.xc {
+  display: block;
+  text-align: center;
+  width: 52px;
+  font-size: 12px;
+  text-decoration: none!important;
+  padding: 1px;
+  font-weight: normal;
+  line-height: 18px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 522, ../../app/stylesheets/screen.scss */
+.gravtar {
+  float: left;
+  width: 32px;
+  height: 32px;
+}
+
+/* line 527, ../../app/stylesheets/screen.scss */
+.userinfo {
+  margin-left: 42px;
+}
+
+/* line 530, ../../app/stylesheets/screen.scss */
+.realname {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* line 534, ../../app/stylesheets/screen.scss */
+.aboutme {
+  width: 100%;
+  padding-top: 5px;
+}
+
+/* line 538, ../../app/stylesheets/screen.scss */
+#suggest-users {
+  margin: 50px 0 20px;
+}
+/* line 540, ../../app/stylesheets/screen.scss */
+#suggest-users h4 {
+  margin-bottom: 5px;
+}
+
+/* line 544, ../../app/stylesheets/screen.scss */
+.follow-user {
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  overflow: hidden;
+  *zoom: 1;
 }

@@ -126,8 +126,9 @@ body.two-col{
     	@include column($blueprint-grid-columns, true);
 	}
 	#sidebar{
-		$sidebar-columns: floor($blueprint-grid-columns / 3);
+		$sidebar-columns: 7;
 		@include column($sidebar-columns, true);
+		float:right;
 	}
 	#content {
     	$content-columns: ceil(2 * $blueprint-grid-columns / 3);
@@ -486,4 +487,62 @@ textarea {
 		color:#888;
 		font-size:12px;
 	}
+}
+
+.xpw {
+float: right;
+}
+.xb {
+background: #8AB923;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ADDA4D',endColorstr='#86B846');
+background: -webkit-gradient(linear,0 0,0 100%,from(#ADDA4D),to(#86B846));
+background: -moz-linear-gradient(top,#ADDA4D,#86B846);
+-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,0 1px 0 rgba(0, 0, 0, .2);
+-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,0 1px 0 rgba(0, 0, 0, .2);
+-o-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,0 1px 0 rgba(0, 0, 0, .2);
+box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,0 1px 0 rgba(0, 0, 0, .15);
+text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+border: 1px solid #6D8F29;
+color: #3E5E00!important;
+}
+.xc {
+display: block;
+text-align: center;
+width: 52px;
+font-size: 12px;
+text-decoration: none!important;
+padding: 1px;
+font-weight: normal;
+line-height: 18px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+}
+.gravtar{
+	float:left;
+	width:32px;
+	height:32px;
+}
+.userinfo{
+	margin-left:42px;
+}
+.realname{
+	font-size:14px;
+	line-height:1;
+}
+.aboutme{
+	width:100%;
+	padding-top:5px;
+}
+#suggest-users{
+	margin:50px 0 20px;
+	h4{
+		margin-bottom:5px;
+	}
+}
+.follow-user{
+	padding:15px 0;
+	border-top:1px solid #ddd;
+	@include clearfix;
 }

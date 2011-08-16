@@ -6,8 +6,15 @@ Batmanreturns::Application.routes.draw do
   get "favorite/favorite"
 
   get "favorite/undo"
-
+  
   devise_for :users
+  
+  resources :users do
+    member do
+      get 'follow'
+      get 'unfollow'
+    end
+  end
 
   resources :questions do
     resources :answers, :only => [:new, :create] do
