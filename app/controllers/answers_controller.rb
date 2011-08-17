@@ -1,19 +1,19 @@
 class AnswersController < ApplicationController
   before_filter :load_question
   def create
-    answer = current_user.answers.build params[:answer]
-    answer.question_id = params[:question_id]
+    @answer = current_user.answers.build params[:answer]
+    @answer.question_id = params[:question_id]
     credit_answer_paid_question = APP_CONFIG["answer_paid_question"]
     if @question.not_free?
       # 回 答 付 费 问 题 ，扣 除 用 户 积 分
       if current_user.credit >= credit_answer_paid_question
         current_user.credit -= credit_answer_paid_question
-        answer.save
+        @answer.save
         current_user.save
         @question.answers_count += 1
       end
     else
-      answer.save                     # 回 答 免 费 问 题 ，直 接 保 存
+      @answer.save                     # 回 答 免 费 问 题 ，直 接 保 存
       @question.answers_count += 1
     end
     @question.save

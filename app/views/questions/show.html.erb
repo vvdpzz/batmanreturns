@@ -15,7 +15,7 @@
 		</div>
 		<div id="post-cell">
 			<div id="question-header">
-				<h3><%= link_to @question.title, @question %></h3>
+				<h3><%= link_to @question.title, @question, :title => "#{@question.title}" %></h3>
 			</div>
 			<div class="post">
 				<%= @question.content %>
