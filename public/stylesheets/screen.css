@@ -1222,3 +1222,34 @@ textarea {
   overflow: hidden;
   *zoom: 1;
 }
+
+/* line 555, ../../app/stylesheets/screen.scss */
+.user-panel {
+  padding: 24px 0 0;
+}
+/* line 557, ../../app/stylesheets/screen.scss */
+.user-panel .big-avatar {
+  float: left;
+  width: 128px;
+  height: 128px;
+}
+/* line 562, ../../app/stylesheets/screen.scss */
+.user-panel .more-info {
+  margin-left: 152px;
+}
+/* line 565, ../../app/stylesheets/screen.scss */
+.user-panel .big-name {
+  font-size: 24px;
+}
+/* line 568, ../../app/stylesheets/screen.scss */
+.user-panel .aboutme {
+  color: #666;
+  font-size: 14px;
+}
+/* line 572, ../../app/stylesheets/screen.scss */
+.user-panel .credit {
+  color: #AAA;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}

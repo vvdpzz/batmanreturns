@@ -38,3 +38,9 @@
 	    <%= f.submit "添加答案", :class => 'answer-submit' %>
 	<% end -%>
 </div>
+<script>
+$('#new_answer').submit(function(){
+	$(this).hide();
+	return false;
+});
+</script>

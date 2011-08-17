@@ -1,0 +1,18 @@
+<div id="content">
+	<div class="user-panel">
+		<div class="big-avatar">
+			<%= image_tag @user.gravatar_url(:size => 128) %>
+		</div>
+		<div class="more-info">
+			<div class="big-name">
+				<%= @user.realname %>
+			</div>
+			<div class="aboutme">
+				<%= @user.aboutme %>
+			</div>
+			<div class="credit">
+				#<%= @user.credit %>
+			</div>
+		</div>
+	</div>
+</div>
