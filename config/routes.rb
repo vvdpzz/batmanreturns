@@ -1,4 +1,8 @@
 Batmanreturns::Application.routes.draw do
+  get "relationship/follow"
+
+  get "relationship/undo"
+
   get "followed_question/followed"
 
   get "followed_question/undo"
@@ -26,6 +30,12 @@ Batmanreturns::Application.routes.draw do
         get 'up'
         get 'down'
       end
+    end
+    member do
+      get 'follow'
+      get 'unfollow'
+      get 'favorite'
+      get 'unfavorite'
     end
   end
   

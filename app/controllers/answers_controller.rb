@@ -3,9 +3,16 @@ class AnswersController < ApplicationController
   def create
     answer = current_user.answers.build params[:answer]
     answer.question_id = @question.id
+    
+    if @question.not_free?
+      if answer.save
+        current_user.credit -= APP_CONFIG["answer_paid_question"]
+      end
+    end
+    
     @question.answers_count += 1
-    answer.save
     @question.save
+    current_user.save
   end
   
   def accept
@@ -15,10 +22,14 @@ class AnswersController < ApplicationController
       @question.accept_a_id = params[:answer_id]
       answer.is_correct = true
       if @question.credit != 0 || @question.money != 0
-        answer.user.credit += @question.credit
-        answer.user.money += @question.money
+        user.credit += @question.credit
+        user.money += @question.money
       end
+      user.credit += APP_CONFIG["answer_is_accepted"]
+      @question.user.credit += APP_CONFIG["answer_is_accepted_to_acceptor"]
+
       @question.save
+      @question.user.save
       answer.save
       user.save
     end

@@ -53,6 +53,32 @@ class QuestionsController < ApplicationController
     @question.destroy
     redirect_to(questions_url)
   end
+  
+  def follow
+    question = Question.find params[:id]
+    if question
+      records = FollowedQuestion.where(:user_id => current_user.id, :question_id => question.id)
+      if records.empty?
+        current_user.followed_questions.create(:question_id => question.id)
+      else
+        record = records.first
+        record.update_attribute(:followed, !record.followed)
+      end
+    end
+  end
+  
+  def favorite
+    question = Question.find params[:id]
+    if question
+      records = FavoriteQuestion.where(:user_id => current_user.id, :question_id => question.id)
+      if records.empty?
+        current_user.favorite_questions.create(:question_id => question.id)
+      else
+        record = records.first
+        record.update_attribute(:favorite, !record.favorite)
+      end
+    end
+  end
 
   protected
     def load_question

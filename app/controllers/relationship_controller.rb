@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+class RelationshipController < ApplicationController
+  before_filter :load_following_user
+  
   def follow
     following_user = User.find params[:id]
     if following_user
@@ -11,16 +13,17 @@ class UsersController < ApplicationController
     end
   end
   
-  def unfollow
+  def undo
     following_user = User.find params[:id]
     if following_user
       follower_id = current_user.id
       followed_id = params[:id]
       $redis.serm("user:#{current_user.id}.follows", params[:id])
+      current_user.relationships.update_attributes(:following=>false)
+  end
+
+  protected
+    def load_following_user
+      @following_user = current_user.relationships.find(params[:id])
     end
-  end
-  
-  def show
-    @user = User.find params[:id]
-  end
 end

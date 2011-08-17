@@ -6,3 +6,6 @@ question_vote_down: 2
 answer_vote_down: 2
 answer_vote_down_to_voter: 1
 answer_charge: 5
+answer_is_accepted: 15
+answer_is_accepted_to_acceptor: 2
+answer_paid_question: 5
