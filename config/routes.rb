@@ -1,4 +1,8 @@
 Batmanreturns::Application.routes.draw do
+  get "notification/read"
+
+  get "notification/readall"
+
   get "relationship/follow"
 
   get "relationship/undo"
