@@ -6,7 +6,7 @@ class VotesController < ApplicationController
     max_credit_per_day = APP_CONFIG["max_credit_per_day"]
     vote_limit = APP_CONFIG["vote_limit"]
     instance_user = @instance.user
-    
+
     # 从redis 中 读 出 是 否 投 过 此 问 题 或 答 案
     have_not_vote_up = !$redis.sismember("#{@instance_type[0].chr}:#{@instance.id}.up_voter", current_user.id)
     have_vote_down = $redis.sismember("#{@instance_type[0].chr}:#{@instance.id}.down_voter", current_user.id)
