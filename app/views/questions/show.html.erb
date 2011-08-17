@@ -8,9 +8,9 @@
 	<%= div_for @question do %>
 		<div id="vote-cell">
 			<div class="vote">
-				<%= link_to 'vote up', up_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-up-off' %>
+				<%= up_voted(@question, current_user.id) %>
 			    <span class="vote-count-post" id="question_<%= @question.id %>_vote"><%= @question.votes_count %></span>
-				<%= link_to 'vote down', down_question_votes_path(:question_id => @question.id), :remote => true, :class => 'vote-down-off' %>
+				<%= down_voted(@question, current_user.id) %>
 			</div>
 		</div>
 		<div id="post-cell">
@@ -31,10 +31,10 @@
 			</div>
 		</div>
 		<%= render @answers %>
-		<%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers") do |f| -%>
-			<h2 class="space">我的回答</h2>
-		    <%= f.text_area :content, :class => 'content-area' %>
-		    <%= f.submit "添加答案", :class => 'answer-submit' %>
-		<% end -%>
 	</div>
+	<%= form_for(Answer.new, :url => "/questions/#{@question.id}/answers", :remote => true) do |f| -%>
+		<h2 class="space">我的回答</h2>
+	    <%= f.text_area :content, :class => 'content-area' %>
+	    <%= f.submit "添加答案", :class => 'answer-submit' %>
+	<% end -%>
 </div>

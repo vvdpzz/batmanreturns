@@ -1,1 +1,3 @@
+$("#<%= @instance.class.name.downcase %>_<%= @instance.id %>_down_class").removeClass("vote-down-on");
+$("#<%= @instance.class.name.downcase %>_<%= @instance.id %>_up_class").addClass("vote-up-on");
 $("#<%= @instance.class.name.downcase %>_<%= @instance.id %>_vote").html("<%=@instance.votes_count%>");

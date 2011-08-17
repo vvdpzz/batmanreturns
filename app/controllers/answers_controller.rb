@@ -1,18 +1,18 @@
 class AnswersController < ApplicationController
   before_filter :find_question
   def create
-    answer = current_user.answers.build params[:answer]
-    answer.question_id = params[:question_id]
+    @answer = current_user.answers.build params[:answer]
+    @answer.question_id = params[:question_id]
     
     if @question.not_free?
-      if answer.save
+      if @answer.save
         current_user.credit -= APP_CONFIG["answer_paid_question"]
       end
     else
-      answer.save
+      @answer.save
     end
     # 把 参 数 的 获 取 放 到 Resque 里 获 取 了（ 这 里 最 后 一 个 参 数 可 以 考 虑 在 answer 中 添 加 一 个 字 段 ），这 里 就 没 那 么 丑 了
-    Resque.enqueue(NewAnswerCall, @question, answer, current_user.realname)
+    Resque.enqueue(NewAnswerCall, @question, @answer, current_user.realname)
     
     @question.answers_count += 1
     @question.save
