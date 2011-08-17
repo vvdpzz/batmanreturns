@@ -1,0 +1,2 @@
+$('#new_answer')[0].reset();
+$('#answers').append("<%= escape_javascript(render 'answer', :answer => @answer) %>");
