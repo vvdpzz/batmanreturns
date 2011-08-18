@@ -35,6 +35,19 @@
 			<% end %>
 	    <% end %>
 	<% end %>
+	
+	<script>
+    	var pusher = new Pusher('2f20b4687fdaada149b2');
+    	var c = pusher.subscribe("presence-channel_<%= current_user.id %>");
+
+    	c.bind('notification_created', function(){
+    		$('#presence').empty();
+    		members.each(function(member) {
+    			$('#presence').append("<div class='dude' id='dude_"+member.id+"'>"+member.info.name+"</div>");
+    		});
+    	});
+    </script>
+    
 	<div id="container">
 		<%= yield %>
 	</div>
