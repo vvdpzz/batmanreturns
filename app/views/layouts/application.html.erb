@@ -30,7 +30,9 @@
 <body class="bp two-col">
 	<% if current_user %>
 	    <%current_user.notifications.find_all_by_read(false).each do |notification|%>
-	      <%= new_answer_notification(notification.user_name, notification.question_id, notification.question_title, notification.answer_content) %>
+			<% if notification.notification_type_id == 1  %>
+	      		<%= new_answer_notification(notification.user_name, notification.question_id, notification.question_title,notification.answer_content) %>
+			<% end %>
 	    <% end %>
 	<% end %>
 	<div id="container">
