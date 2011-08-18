@@ -39,6 +39,9 @@ class AnswersController < ApplicationController
       @question.user.save
       answer.save
       user.save
+      if answer.save
+        Resque.enqueue(NewAcceptQueue, @question, current_user.id,current_user.realname)
+      end
     end
   end
 

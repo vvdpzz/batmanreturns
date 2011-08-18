@@ -27,6 +27,8 @@ class CommentsController < ApplicationController
       Resque.enqueue(NewCommentQueue, @instance_type, @instance, comment, current_user.id, current_user.realname, 0)
     else  
       Resque.enqueue(NewCommentQueue, @instance_type, @instance, comment, current_user.id, current_user.realname, 1)
+      puts @instance_type
+      puts @instance
     end
   end
   

@@ -26,12 +26,14 @@ class NewCommentQueue
       reciever_id = object["answer"]["user_id"]
       user_id = id
       user_name = realname
+      question_id = object["answer"]["question_id"]
       answer_id = object["answer"]["id"]
       answer_content = object["answer"]["content"]
       comment_content =comment
       Notification.create(:user_id => reciever_id,
                           :user    => user_id,
                           :user_name => user_name,
+                          :question_id => question_id,
                           :answer_id => answer_id,
                           :answer_content => answer_content,
                           :comment_content => comment_content,
