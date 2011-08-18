@@ -5,6 +5,13 @@ module ApplicationHelper
     content_tag(:div, 
             content_tag(:p, content), :class => "strong").html_safe
   end
+
+  #5
+  def new_accept_answer(user_id,user_name,question_id,question_title)
+    content = "#{link_to user_name, user_path(:id => user_id)} has appept your answer on #{link_to question_title, question_path(:id => question_id)}".html_safe
+    content_tag(:div, 
+            content_tag(:p, content), :class => "strong").html_safe
+  end
   
   #6
   def new_comment_on_q(user_id,user_name,question_id,question_title)
@@ -19,7 +26,14 @@ module ApplicationHelper
     content_tag(:div, 
             content_tag(:p, content), :class => "strong").html_safe
   end
-  
+
+  #8
+  def new_follower(user_id,user_name)
+    content = "#{link_to user_name, user_path(:id => user_id)} is following you".html_safe
+    content_tag(:div, 
+            content_tag(:p, content), :class => "strong").html_safe
+  end
+ 
   #9 评 论 回 复 
   #def new_reply_comment(user_name,comment,question_title,answer)
   #  content = "has a new reply #{comment} on your comment on #{question_title}".html_safe

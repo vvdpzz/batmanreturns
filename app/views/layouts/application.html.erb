@@ -34,10 +34,14 @@
 			<li class="notification">
 			<% if notification.notification_type_id == 1  %>
 	      		<%= new_answer_notification(notification.user_id,notification.user_name, notification.question_id, notification.question_title) %>
+			<% elsif notification.notification_type_id == 5 %>
+				<%= new_accept_answer(notification.user_id,notification.user_name,notification.question_id, notification.question_title) %>
 			<% elsif notification.notification_type_id == 6 %>
 				<%= new_comment_on_q(notification.user_id,notification.user_name,notification.question_id, notification.question_title) %>
 			<% elsif notification.notification_type_id == 7 %>
 				<%= new_comment_on_a(notification.user_id,notification.user_name,notification.question_id, notification.answer_content) %>
+			<% elsif notification.notification_type_id == 8 %>
+				<%= new_follower(notification.user_id,notification.user_name) %>
 			<% end %>
 			</li>
 	    <% end %>

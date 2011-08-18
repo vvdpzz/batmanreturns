@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_filter :load_question, :only => [:edit, :update, :destroy]
+  before_filter :load_question, :only => [:edit, :update]
 
   def index
     @questions = Question.all
@@ -50,8 +50,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @question = Question.find(params[:id])
     @question.destroy
-    redirect_to(questions_url)
   end
   
   def follow

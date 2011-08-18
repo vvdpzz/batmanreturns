@@ -1,7 +1,7 @@
 class NewAcceptQueue
   @queue = :resque_call  
-  def self.perform(question, id, realname)
-    reciever_id = question["question"]["user_id"]
+  def self.perform(answer, question, id, realname)
+    reciever_id = answer["answer"]["user_id"]
     user_id = id
     user_name = realname
     question_id = question["question"]["id"]

@@ -24,6 +24,7 @@ class AnswersController < ApplicationController
   def accept
     if @question.accept_a_id == 0
       answer = @question.answers.find params[:answer_id]
+      puts answer
       user = answer.user
       @question.accept_a_id = params[:answer_id]
       answer.is_correct = true
@@ -39,7 +40,7 @@ class AnswersController < ApplicationController
       answer.save
       user.save
       if answer.save
-        Resque.enqueue(NewAcceptQueue, @question, current_user.id,current_user.realname)
+        Resque.enqueue(NewAcceptQueue, answer, @question, current_user.id,current_user.realname)
       end
     end
   end
