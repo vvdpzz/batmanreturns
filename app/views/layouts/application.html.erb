@@ -30,7 +30,13 @@
 <body class="bp two-col">
 	<% if current_user %>
 	    <%current_user.notifications.find_all_by_read(false).each do |notification|%>
-	      <%= new_answer_notification(notification.user_name, notification.question_id, notification.question_title, notification.answer_content) %>
+			<% if notification.notification_type_id == 1  %>
+	      		<%= new_answer_notification(notification.user_id,notification.user_name, notification.question_id, notification.question_title) %>
+			<% elsif notification.notification_type_id == 6 %>
+				<%= new_comment_on_q(notification.user_id,notification.user_name,notification.question_id, notification.question_title) %>
+			<% elsif notification.notification_type_id == 7 %>
+				<%= new_comment_on_a(notification.user_id,notification.user_name,notification.question_id, notification.answer_content) %>
+			<% end %>
 	    <% end %>
 	<% end %>
 	<div id="container">

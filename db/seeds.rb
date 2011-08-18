@@ -16,36 +16,36 @@
 # NotificationType.create(:notification =>"用户被关注")
 # NotificationType.create(:notification =>"评论有回复")
 # 
-# $redis.multi do
-#     
-#   Vote.all.each do |vote|
-#     question_id = vote.question_id
-#     answer_id = vote.answer_id
-#     user_id = vote.user_id
-#     
-#     if question_id
-#       if vote.vote == 1
-#         $redis.srem("q:#{question_id}.down_voter", user_id)
-#         $redis.sadd("q:#{question_id}.up_voter", user_id)
-#       else
-#         $redis.srem("q:#{question_id}.up_voter", user_id)
-#         $redis.sadd("q:#{question_id}.down_voter", user_id)
-#       end
-#     end
-#     
-#     if answer_id
-#       if vote.vote == 1
-#         $redis.srem("a:#{answer_id}.down_voter", user_id)
-#         $redis.sadd("a:#{answer_id}.up_voter", user_id)
-#       else
-#         $redis.srem("a:#{answer_id}.up_voter", user_id)
-#         $redis.sadd("a:#{answer_id}.down_voter", user_id)
-#       end
-#     end
-#   end
-#   
-# end
-
+# #$ redis.multi do
+# #     
+# #   Vote.all.each do |vote|
+# #     question_id = vote.question_id
+# #     answer_id = vote.answer_id
+# #     user_id = vote.user_id
+# #     
+# #     if question_id
+# #       if vote.vote == 1
+# #         $redis.srem("q:#{question_id}.down_voter", user_id)
+# #         $redis.sadd("q:#{question_id}.up_voter", user_id)
+# #       else
+# #         $redis.srem("q:#{question_id}.up_voter", user_id)
+# #         $redis.sadd("q:#{question_id}.down_voter", user_id)
+# #       end
+# #     end
+# #     
+# #     if answer_id
+# #       if vote.vote == 1
+# #         $redis.srem("a:#{answer_id}.down_voter", user_id)
+# #         $redis.sadd("a:#{answer_id}.up_voter", user_id)
+# #       else
+# #         $redis.srem("a:#{answer_id}.up_voter", user_id)
+# #         $redis.sadd("a:#{answer_id}.down_voter", user_id)
+# #       end
+# #     end
+# #   end
+# #   
+# # end
+# 
 require 'open-uri'
 
 class String

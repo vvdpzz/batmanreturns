@@ -15,4 +15,9 @@ gem 'enumerate_it'
 gem 'compass'
 gem 'sentient_user'
 gem 'gravtastic'
+<<<<<<< HEAD
 gem 'nokogiri'
+=======
+gem 'nokogiri'
+#gem 'open-uri'
+>>>>>>> 8368cd85171fe7fea54f7c2ee733e850e44aec91
