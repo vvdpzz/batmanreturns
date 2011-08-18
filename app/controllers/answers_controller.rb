@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
       @question.answers_count += 1
     end
     @question.save
-        
+
     Resque.enqueue(NewAnswerCall, @question, @answer, current_user.realname)
   end
   
@@ -38,6 +38,9 @@ class AnswersController < ApplicationController
       @question.user.save
       answer.save
       user.save
+      if answer.save
+        Resque.enqueue(NewAcceptQueue, @question, current_user.id,current_user.realname)
+      end
     end
   end
 

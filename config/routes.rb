@@ -17,6 +17,8 @@ Batmanreturns::Application.routes.draw do
   
   devise_for :users
   
+  match 'pusher/auth' => "pusher#auth"
+  
   resources :users do
     member do
       get 'follow'

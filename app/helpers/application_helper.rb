@@ -1,9 +1,31 @@
 module ApplicationHelper
-  def new_answer_notification(user_name,question_id,question_title,answer)
-    content = "#{link_to question_title, question_path(:id => question_id)} has a new answer #{answer} on your question #{question_title}".html_safe
+  #1
+  def new_answer_notification(user_id,user_name,question_id,question_title)
+    content = "#{link_to user_name, user_path(:id => user_id)} has a new answer on your question #{link_to question_title, question_path(:id => question_id)}".html_safe
     content_tag(:div, 
             content_tag(:p, content), :class => "strong").html_safe
   end
+  
+  #6
+  def new_comment_on_q(user_id,user_name,question_id,question_title)
+    content = "#{link_to user_name, user_path(:id => user_id)} has a new comment on your question #{link_to question_title, question_path(:id => question_id)}".html_safe
+    content_tag(:div, 
+            content_tag(:p, content), :class => "strong").html_safe
+  end
+  
+  #7
+  def new_comment_on_a(user_id,user_name,question_id,answer)
+    content = "#{link_to user_name, user_path(:id => user_id)} has a new comment on your answer #{link_to answer, question_path(:id => question_id)}".html_safe
+    content_tag(:div, 
+            content_tag(:p, content), :class => "strong").html_safe
+  end
+  
+  #9 评 论 回 复 
+  #def new_reply_comment(user_name,comment,question_title,answer)
+  #  content = "has a new reply #{comment} on your comment on #{question_title}".html_safe
+  #  content_tag(:div, 
+  #          content_tag(:p, content), :class => "strong").html_safe
+  #end
   
   def up_voted(obj, uid)
     upclass = 'vote-up-off '

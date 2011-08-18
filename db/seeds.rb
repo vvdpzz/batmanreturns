@@ -45,8 +45,13 @@ NotificationType.create(:notification =>"评论有回复")
 #   end
 #   
 # end
+<<<<<<< HEAD
 # 
 # urls = []
+=======
+
+#url s = []
+>>>>>>> 8368cd85171fe7fea54f7c2ee733e850e44aec91
 # 
 # url = "http://bbs.55bbs.com/forum-8-1.html"
 # doc = Nokogiri::HTML(open(url))

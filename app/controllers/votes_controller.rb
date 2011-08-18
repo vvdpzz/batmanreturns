@@ -33,16 +33,18 @@ class VotesController < ApplicationController
         instance_user.credit += credit_per_vote
       end
       
-      # 将 投 票 信 息 保 存
-      if @instance_type == "question"
-        vote = current_user.votes.build(:question_id => @instance.id, :vote => 1)
-      else
-        vote = current_user.votes.build(:answer_id => @instance.id, :vote => 1)
-      end
       # 将 问 题 或 答 案 的 投 票 者 记 录 到redis
       $redis.sadd("#{@instance_type[0].chr}:#{@instance.id}.up_voter", current_user.id)
       $redis.srem("#{@instance_type[0].chr}:#{@instance.id}.down_voter", current_user.id)
       
+      # 将 投 票 信 息 保 存
+      if @instance_type == "question"
+        vote = current_user.votes.build(:question_id => @instance.id, :vote => 1)
+        
+      else
+        vote = current_user.votes.build(:answer_id => @instance.id, :vote => 1)
+      end
+    
       # 保 存 相 关 信 息 的 变 更
       current_user.save
       instance_user.save
@@ -76,6 +78,9 @@ class VotesController < ApplicationController
       end
       current_user.vote_per_day -= 1
 
+      # 将 问 题 或 答 案 的 投 票 者 记 录 到redis
+      $redis.sadd("#{@instance_type[0].chr}:#{@instance.id}.down_voter", current_user.id)
+      $redis.srem("#{@instance_type[0].chr}:#{@instance.id}.up_voter", current_user.id)
       
       # 将 投 票 信 息 保 存 到 数 据 库 中
       if @instance_type == "question"
@@ -88,9 +93,7 @@ class VotesController < ApplicationController
         
         vote = current_user.votes.build(:answer_id => @instance.id, :vote => -1)
       end
-      # 将 问 题 或 答 案 的 投 票 者 记 录 到redis
-      $redis.sadd("#{@instance_type[0].chr}:#{@instance.id}.down_voter", current_user.id)
-      $redis.srem("#{@instance_type[0].chr}:#{@instance.id}.up_voter", current_user.id)
+
       # 保 存 相 关 信 息 的 变 更
       current_user.save
       instance_user.save

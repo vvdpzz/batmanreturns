@@ -19,10 +19,10 @@ class NewAnswerCall
                         :question_content => question_content,
                         :answer_id => answer_id,
                         :answer_content => answer_content,
-                        :notification_type_id => 1)
+                        :notification_type_id => 1)    
     
-    value = new_answer_notification(notification.user_name, notification.question_id, notification.question_title, notification.answer_content)
-
-    Pusher["presence-channel_#{current_user.id}"].trigger('notification_created', value)
+    value = {:user_id => notification.user_id, :user_name => notification.user_name, :obj_id => notification.question_id, :remark => notification.question_title, :type => " has a new answer on your question "}.to_json
+    
+    Pusher["presence-channel_#{reciever_id}"].trigger('notification_created', value)
   end  
 end

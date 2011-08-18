@@ -5,7 +5,7 @@
 	<%= stylesheet_link_tag 'screen.css', :media => 'screen, projection' %>
 	<%= stylesheet_link_tag 'print.css', :media => 'print' %>
 	<!--[if lt IE 8]><%= stylesheet_link_tag 'ie.css', :media => 'screen, projection' %><![endif]-->
-	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag :defaults %>、
 	<%= csrf_meta_tag %>
 </head>
 <div id="header">
@@ -29,23 +29,29 @@
 </div>
 <body class="bp two-col">
 	<% if current_user %>
+	    <ul id="notifications">
 	    <%current_user.notifications.find_all_by_read(false).each do |notification|%>
+			<li class="notification">
 			<% if notification.notification_type_id == 1  %>
-	      		<%= new_answer_notification(notification.user_name, notification.question_id, notification.question_title,notification.answer_content) %>
+	      		<%= new_answer_notification(notification.user_id,notification.user_name, notification.question_id, notification.question_title) %>
+			<% elsif notification.notification_type_id == 6 %>
+				<%= new_comment_on_q(notification.user_id,notification.user_name,notification.question_id, notification.question_title) %>
+			<% elsif notification.notification_type_id == 7 %>
+				<%= new_comment_on_a(notification.user_id,notification.user_name,notification.question_id, notification.answer_content) %>
 			<% end %>
+			</li>
 	    <% end %>
+	    </ul>
 	<% end %>
 	
 	<script>
     	var pusher = new Pusher('2f20b4687fdaada149b2');
     	var c = pusher.subscribe("presence-channel_<%= current_user.id %>");
 
-    	c.bind('notification_created', function(){
-    		$('#presence').empty();
-    		members.each(function(member) {
-    			$('#presence').append("<div class='dude' id='dude_"+member.id+"'>"+member.info.name+"</div>");
-    		});
+    	c.bind('notification_created', function(notification) {
+    		$('#notifications').append("<li class='notifications'><div class='strong'><p><a href='/users/" + notification.user_id + "'>" + notification.user_name + "</a>" + notification.type + "<a href='/questions/" + notification.obj_id + "'>" + notification.remark + "</a></p></div></li>");
     	});
+
     </script>
     
 	<div id="container">
