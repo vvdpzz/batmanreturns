@@ -5,16 +5,16 @@ User.create(:username => 'tzzzoz', :realname => '喻柏程', :email => 'tzzzoz@g
 Question.create(:user_id => 1, :title => "This is the first question.", :content => "This is a content")
 Question.create(:user_id => 2, :title => "This is the second question.", :content => "This is a content")
 Question.create(:user_id => 3, :title => "This is the third question.", :content => "This is a content")
-
-NotificationType.create(:notification =>"问题有新答案")
-NotificationType.create(:notification =>"问题被投票")
-NotificationType.create(:notification =>"问题被接受")
-NotificationType.create(:notification =>"答案被投票")
-NotificationType.create(:notification =>"答案被接受")
-NotificationType.create(:notification =>"问题被评论")
-NotificationType.create(:notification =>"答案被评论")
-NotificationType.create(:notification =>"用户被关注")
-NotificationType.create(:notification =>"评论有回复")
+# 
+# NotificationType.create(:notification =>"问题有新答案")
+# NotificationType.create(:notification =>"问题被投票")
+# NotificationType.create(:notification =>"问题被接受")
+# NotificationType.create(:notification =>"答案被投票")
+# NotificationType.create(:notification =>"答案被接受")
+# NotificationType.create(:notification =>"问题被评论")
+# NotificationType.create(:notification =>"答案被评论")
+# NotificationType.create(:notification =>"用户被关注")
+# NotificationType.create(:notification =>"评论有回复")
 # 
 # #$ redis.multi do
 # #     

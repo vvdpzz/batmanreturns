@@ -8,7 +8,8 @@ class UsersController < ApplicationController
         $redis.sadd("user:#{current_user.id}.follows", params[:id])
       end
       if is_in_redis
-        Resque.enqueue(NewFollowerQueue, followed_id,follower_id,current_user.realname)
+        description = APP_CONFIG["notice_follow_user"]
+        Resque.enqueue(NewFollowerQueue, followed_id, follower_id, current_user.realname, description)
       end
     end
   end
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
     if following_user
       follower_id = current_user.id
       followed_id = params[:id]
-      $redis.serm("user:#{current_user.id}.follows", params[:id])
+      $redis.srem("user:#{current_user.id}.follows", params[:id])
     end
   end
   

@@ -17,8 +17,9 @@ class AnswersController < ApplicationController
       @question.answers_count += 1
     end
     @question.save
-
-    Resque.enqueue(NewAnswerCall, @question, @answer, current_user.realname)
+    
+    description = APP_CONFIG["notice_answer_question"]
+    Resque.enqueue(NewAnswerCall, current_user.realname, description, @question, @answer)
   end
   
   def accept
@@ -37,10 +38,11 @@ class AnswersController < ApplicationController
 
       @question.save
       @question.user.save
-      answer.save
       user.save
+      
       if answer.save
-        Resque.enqueue(NewAcceptQueue, answer, @question, current_user.id,current_user.realname)
+        description = APP_CONFIG["notice_accept_answer"]
+        Resque.enqueue(NewAcceptQueue, current_user.realname, description, @question, answer)
       end
     end
   end

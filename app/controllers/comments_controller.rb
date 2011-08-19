@@ -19,16 +19,13 @@ class CommentsController < ApplicationController
     else
       new_comments = old_comments + ',' + MultiJson.encode(hash)
     end
-    puts new_comments
     
-    comment=hash[:content]
-    @instance.update_attribute(:comments, new_comments)
-    if old_comments.nil? 
-      Resque.enqueue(NewCommentQueue, @instance_type, @instance, comment, current_user.id, current_user.realname, 0)
-    else  
-      Resque.enqueue(NewCommentQueue, @instance_type, @instance, comment, current_user.id, current_user.realname, 1)
-      puts @instance_type
-      puts @instance
+    comment = hash[:content]
+    
+    description = APP_CONFIG["notice_comment_#{@instance_type}"]
+
+    if @instance.update_attribute(:comments, new_comments)
+      Resque.enqueue(NewCommentQueue, current_user.id, current_user.realname, description, @instance, comment)
     end
   end
   
