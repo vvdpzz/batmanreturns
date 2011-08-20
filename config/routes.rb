@@ -1,7 +1,4 @@
 Batmanreturns::Application.routes.draw do
-  get "notification/read"
-
-  get "notification/readall"
 
   get "relationship/follow"
 
@@ -16,6 +13,8 @@ Batmanreturns::Application.routes.draw do
   get "favorite/undo"
   
   devise_for :users
+  
+  match 'pusher/auth' => "pusher#auth"
   
   resources :users do
     member do
@@ -51,6 +50,10 @@ Batmanreturns::Application.routes.draw do
         get 'down'
       end
     end
+  end
+
+  resources :notifications, :only => [] do
+      get 'read'
   end
 
   # The priority is based upon order of creation:

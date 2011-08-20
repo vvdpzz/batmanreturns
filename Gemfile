@@ -17,4 +17,3 @@ gem 'sentient_user'
 gem 'gravtastic'
 gem 'nokogiri'
 #gem 'open-uri'
-

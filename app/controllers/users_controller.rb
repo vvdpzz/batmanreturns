@@ -13,8 +13,9 @@ class UsersController < ApplicationController
         if in_relationship
           current_user.relationships.create(:follower_id => follower_id,:followed_id => followed_id)
         end
-        Resque.enqueue(NewFollowerQueue, followed_id,follower_id,current_user.realname)
-        
+      if is_in_redis
+        description = APP_CONFIG["notice_follow_user"]
+        Resque.enqueue(NewFollowerQueue, followed_id, follower_id, current_user.realname, description)
       end
     end
   end

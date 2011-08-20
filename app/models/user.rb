@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   has_many :recieve, :class_name => "transaction", :foreign_key => "receive_u_id"
   has_many :votes
   has_many :following_user
-  has_many :notifications
   has_many :relationships
+  has_many :notifications, :class_name => "Notification", :foreign_key => "receiver_id"
   
   def has_relationship(user_id)
     $redis.sismember("user:#{user_id}.follows", self.id)

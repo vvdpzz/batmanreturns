@@ -18,8 +18,8 @@ class AnswersController < ApplicationController
     end
     @question.save
     
-    # 把 参 数 的 获 取 放 到 Resque 里 获 取 了（ 这 里 最 后 一 个 参 数 可 以 考 虑 在 answer 中 添 加 一 个 字 段 ），这 里 就 没 那 么 丑 了
-    Resque.enqueue(NewAnswerCall, @question, @answer, current_user.realname)
+    description = APP_CONFIG["notice_answer_question"]
+    Resque.enqueue(NewAnswerCall, current_user.realname, description, @question, @answer)
   end
   
   def accept
@@ -38,10 +38,11 @@ class AnswersController < ApplicationController
 
       @question.save
       @question.user.save
-      answer.save
       user.save
+      
       if answer.save
-        Resque.enqueue(NewAcceptQueue, answer, @question, current_user.id,current_user.realname)
+        description = APP_CONFIG["notice_accept_answer"]
+        Resque.enqueue(NewAcceptQueue, current_user.realname, description, @question, answer)
       end
     end
   end

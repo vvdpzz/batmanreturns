@@ -9,3 +9,10 @@ answer_charge: 5
 answer_is_accepted: 15
 answer_is_accepted_to_acceptor: 2
 answer_paid_question: 5
+
+
+notice_answer_question: "回答了您的问题"
+notice_comment_question: "评论了您的问题"
+notice_comment_answer: "评论了您的答案"
+notice_accept_answer: "接受了您的答案"
+notice_follow_user: "关注了您"
