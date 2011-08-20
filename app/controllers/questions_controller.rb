@@ -7,6 +7,10 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    # 打 开 问 题 页 面 时 ， 将 与 该 问 题 有 关 的 通 知 标 为 已 读
+    # current_user.notifications.where(:subject_id => params[:id]).each do |notification|
+    #   notification.update_attributes(:read => true)
+    # end
     @question = Question.find(params[:id])
     @answers = @question.answers
   end

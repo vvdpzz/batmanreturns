@@ -30,24 +30,41 @@
 <body class="bp two-col">
     <!--登 陆 以 后 执 行-->
 	<% if current_user %>
-	    <ul id="notifications">
-	    <% puts current_user.username %>
+	<div id="notifications">
 	    <% current_user.notifications.find_all_by_read(false).each do |notification|%>
-			<li class="notification">
-	      		<%= new_notification(notification.sender_id, notification.sender_name, notification.description, notification.subject_id, notification.subject_content) %>
-			</li>
+                <%= div_for notification do %>
+                    <%= new_notification(notification)%>
+                <% end %>
 	    <% end %>
-	    </ul>
-	
-
+    </div>
 
     <script>
     	var pusher = new Pusher('2f20b4687fdaada149b2');
     	var c = pusher.subscribe("presence-channel_<%= current_user.id %>");
 
     	c.bind('notification_created', function(notification) {
-    		$('#notifications').append("<li class='notifications'><div class='strong'><p><a href='/users/" + notification.sender_id + "'>" + notification.sender_name + "</a>" + notification.description + "<a href='/questions/" + notification.subject_id + "'>" + notification.subject_content + "</a><a href='/questions/" + notification.subject_id + "'>" + notification.object_content + "</a></p></div></li>");
+    		$('#notifications').append("<div class='notification' id='notification_" + notification.id + "'><div class='strong'><p><a href='/users/" + notification.sender_id + "'>" + notification.sender_name + "</a>" + notification.description + "<a href='/questions/" + notification.subject_id + "'>" + notification.subject_content + "</a>|<a id='" + notification.object_id + "'>" + notification.object_content + "</a></p></div></div>");
     	});
+    	
+    	$(".notification").live('click', function(event) {
+    	    notification_id = this.id.slice(13);
+    	    id = "#notification_" + notification_id
+    	    url = "/notifications/" + notification_id + "/read";
+    	    $.get(url, function(data){
+    	        $(id).remove();
+    	    });
+	    });
+	    
+	    $("a#asdf").live('click', function(event) {
+	        node = $(this).parent().parent().parent();
+    	    notification_id = node.attr("id").slice(13);
+    	    url = "/notifications/" + notification_id + "/read";
+    	    $.get(url, function(data){
+    	        node.remove();
+    	    });
+	    });
+
+	    
 
     </script>
     

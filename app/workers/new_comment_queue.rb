@@ -8,9 +8,10 @@ class NewCommentQueue
       object_content = comment                                # object   =>  通 知 的 客 体
     else
       receiver_id = instance["answer"]["user_id"]
-      subject_id = instance["answer"]["id"]
+      subject_id = instance["answer"]["question_id"]
       subject_content = instance["answer"]["content"]
-      sender_content = comment
+      object_id = instance["answer"]["id"]
+      object_content = comment
     end
     
     notification = Notification.create(:receiver_id => receiver_id,
