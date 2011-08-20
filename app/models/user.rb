@@ -20,4 +20,9 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :following_user
   has_many :notifications
+  has_many :relationships
+  
+  def has_relationship(user_id)
+    $redis.sismember("user:#{user_id}.follows", self.id)
+  end
 end
