@@ -14,5 +14,23 @@
 				# <%= @user.credit %>
 			</div>
 		</div>
+		<div class="follow">
+			<strong>follower</strong> <%= @follower %>
+			<strong>following</strong> <%= @following %>
+		</div>
+		<div class="q-a-info">
+			<div class="question">
+				<% @question.each do |question| %>
+					<strong>ID</strong> <%= link_to question.id, question_path(:id => question.id) %><br />	
+					<strong>TITLE</strong> <%= link_to question.title, question_path(:id => question.id) %><br />
+					<%= answers = Answer.where(:question_id => question.id) %>
+					<% if answers %>
+						<% answers.each do |answer| %>
+							<strong>Answer</strong> <%= link_to answer.content, question_path(:id => question.id) %><br />
+						<% end %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>

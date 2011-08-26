@@ -36,8 +36,4 @@ class Question < ActiveRecord::Base
     system = User.find_by_id i
     system.update_attribute(:money, system.money + amount)
   end
-  
-  
-  
-
 end
